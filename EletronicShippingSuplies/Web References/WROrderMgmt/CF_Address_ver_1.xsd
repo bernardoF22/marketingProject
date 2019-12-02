@@ -1,0 +1,2268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:java="clsTools" xmlns="http://www.dhl.com/DA/CF_Address" xmlns:CF_GI="http://www.dhl.com/DA/CF_GeneralInfo" targetNamespace="http://www.dhl.com/DA/CF_Address" CF_GI:dummy="" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="CF_GeneralInfo_ver_0.002.xsd" namespace="http://www.dhl.com/DA/CF_GeneralInfo" />
+  <xs:simpleType name="AccountNumber_12">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Number to  identify an account.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="12" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AccountUniqueIdentifier_10">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: A ten digit number without leading zeroes. The last digit is a check digit calculated using Modulus 7.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="10" />
+      <xs:fractionDigits value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AddressTypeCode_3">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ApplicationSystemCode_5">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BusinessParty_20">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: An identifier of a person or an organisation that DHL is interested in.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Code_2">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Code_3">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CommunicationChannelTypeCode_3">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CommunicationNumber_70">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Based on Trade Data Element Directory '94
+3148 Communication number
+Complete communication number including country or area code when applicable.  Also see: 3153 Communication channel identifier.
+
+This domain is generally used for communication numbers.
+
+For a telephone number, the following breakdown must be used:
+
+Communication number = Country dial code + Area dial code + Local dial code</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="70" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CountryAreaDialCode_6">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: A recognised code to access an area within a country, in order to connect to a Communication device using the telephone system.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:simpleType name="CountryCode_2">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Unique code for a Country.
+
+Global DHL codelist available in ESD. Codelist based on ISO 3166, containing alphanumeric codes.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Global DHL codelist available in ESD.
+Codelist based on ISO 3166, containing alphanumeric codes.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DateCymd_10">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: A Point in time mark indicated by a specific Day.
+
+Message format = 'CCYY-MM-DD'
+CCYY = the year in the usual Gregorian calendar
+CC = the century, values 19 to 20 (spaces not allowed)
+YY = the year, values 00 to 99 (spaces not allowed)
+MM = the month, values 01 to 12 (spaces not allowed)
+DD = the day, values 01 to 31 (spaces not allowed)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:date" />
+  </xs:simpleType>
+  <xs:simpleType name="DatetimeCymdhms_19">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: DateTime values may be viewed as objects with integer-valued year, month, day, hour and minute properties, a decimal-valued second property, and a boolean timezoned property. Each such object also has one decimal-valued method or computed property, timeOnTimeline, whose value is always a decimal number; the values are dimensioned in seconds, the integer 0 is 0001-01-01T00:00:00 and the value of timeOnTimeline for other dateTime values is computed using the Gregorian algorithm as modified for leap-seconds. The timeOnTimeline values form two related "timelines", one for timezoned values and one for non-timezoned values. Each timeline is a copy of the ??value space?? of decimal, with integers given units of seconds. 
+Example:
+1980-12-23 24:00:00 = 1980-12-24T00:00:00
+
+Valuesformat 'CCYY-MM-DDThh:mm:ss'= the year in the usual Gregorian calendar= the century, values 19 to 20 (spaces not allowed)= the year, values 00 to 99 (spaces not allowed)= the month, values 01 to 12 (spaces not allowed)= the day, values 01 to 31 (spaces not allowed)= the hours, values 00 to 24 (spaces not allowed)= the minutes, values 00 to 59 (spaces not allowed)= the seconds, values 00 to 60 (spaces not allowed).
+</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:dateTime" />
+  </xs:simpleType>
+  <xs:simpleType name="DatetimeGmtOffset_6">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Coded time difference between Local time and Universal time.
+Allowed values:	(-12:00,+12:00)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DatetimeHm_5">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: A Time of day indicated by a specific Minute.
+
+Internal format 'hh:mm'</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:duration" />
+  </xs:simpleType>
+  <xs:simpleType name="DayOfTheWeekNumber_1">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Each day of the week is qualified by a number. 
+0 = Sunday
+1 = Monday
+2 = Tuesday 
+3 = Wednesday 
+4 = Thursday 
+5 = Friday 
+6 = Saturday 
+7 = Holiday</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:short" />
+  </xs:simpleType>
+  <xs:simpleType name="DhlCompanyEntityCode_6">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DhlSectorCode_12">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="12" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DiscriminatorCode_3">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: A code that helps distinguish among the subtype entities of a supertype entity.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DivisionCode_2">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DpwnDivisionCode_3">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FacilityCode_3">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: A code assigned to a Facility within a Service area.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: DHL codelist at country-level.
+
+See ESD codelist for valid Facility codes, which are based on International air transport assn Resolution 763. The codelist will consist of Service centre codes + other Facility codes.  Example of global predefined values:
+GTY = Gateway
+HUB = Hub
+AVI = Aviation
+STN = Station
+CO = Country Office
+WHQ = World Head Office
+RO = Regional Office
+GCC = Global Co-ordination Centre</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FacilityIdentifier_12">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="12" />
+      <xs:fractionDigits value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="GeoCode_10_7">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Latitude and longitude expressed in decimal 999,9999999</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="10" />
+      <xs:fractionDigits value="7" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IndicatorYn_1">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: An generic indicator field that can either be set to Y or N.
+
+Only allowed values are:
+Y = Yes
+N = No</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Only allowed values are:
+Y = Yes
+N = No</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Number">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Should only be used if the exact number domain has not been defined.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:simpleType name="PartyInstructionTypeCode_1">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Code indicating the type of instruction associated to a Party.
+
+Only allowed values are:
+A = Address instruction
+C = Contact instruction
+D = Device instruction</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Only allowed values are:
+A = Address instruction
+C = Contact instruction
+D = Device instruction</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Postcode_12">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Code defining a Postal area.
+
+Codelist at country-level.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Codelist at country-level.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="12" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PostOfficeBoxNumber_35">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: A unique number for a post office box, issued by a postal authority to a Customer as an Address to receive mail and/or shipments.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="35" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SequenceNumber_3n">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Number indicating the position in a sequence.
+
+This sequence number can be used for identification of page numbers, line numbers etc.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Type/length: na..6
+Type: Number
+Length: 3
+Decimals: 0</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:simpleType name="ServiceAreaCode_3">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Code identifying a Service area.
+
+Global DHL codelist, available in ESD.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Global DHL codelist, available in ESD.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SoundexCode_10">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Soundex code is a code which identifies names on the way they sound.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StatusCode_2">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Contains the valid status 
+C - create
+A - active
+I - inactive</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StreetNumber_20">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Unique number of a building or part of a building within a street in order to identify a Party address.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="String">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Should only be used if the exact string domain has not been defined.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_17">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for text.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="17" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_20">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for text.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_250">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for a text</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="250" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_3">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for a text</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_35">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for text.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Text can be a Description, Instruction, Remarks or a String.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="35" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_45">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="45" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_50">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for a text</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_70">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for a text</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Text can be a Description,  Instruction, Remarks or a String.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="70" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_75">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for a text</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="75" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_80">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for a text</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="80" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TimeHhmm_5">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Time value in format: HH:MM</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:dateTime" />
+  </xs:simpleType>
+  <xs:simpleType name="TourIdentifier_12">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Note: Code used to identify the pickup and delivery routes of DHL couriers.</xs:documentation>
+      <xs:documentation>Original Domain_Comment: Code identifying a Courier route.
+
+Code used to identify the pickup and delivery routes of DHL couriers.
+
+DHL codelist at country-level.
+</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="12" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UserName_10">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for text.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Version_7">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Version information, typically associated with an application.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="7" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="XmlOperation_1">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Type of operation   (I - insert, U - update, D delete).</xs:documentation>
+      <xs:documentation>Original Domain_Comment: Type of operation   (I - insert, U - update, D delete).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AddrCFType">
+    <xs:annotation>
+      <xs:documentation>Business object messages.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Addr" type="CdmAddress_Address">
+        <xs:annotation>
+          <xs:documentation> Element for Address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CdmAddress_SUB_AccountAddressUsage">
+    <xs:annotation>
+      <xs:documentation>Keeps the addresses used by a specific account.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence />
+    <xs:attribute name="AccNo">
+      <xs:annotation>
+        <xs:documentation>/Account number : The account number identifier of the Account. This is the number that our customer is using.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="AUId">
+      <xs:annotation>
+        <xs:documentation>Account unique identifier : A unique ten-digit number without leading zeros used to identify an account within DHL. The last digit is a check-digit calculated using the 'Modulus 7' method.
+
+This will be allocated during migration of accounts into GCDB.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="10" />
+          <xs:fractionDigits value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmAddress_SUB_BusinessPartyAddressUsage">
+    <xs:annotation>
+      <xs:documentation>Keeps the addresses used by a specific business party.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence />
+    <xs:attribute name="AccNo">
+      <xs:annotation>
+        <xs:documentation>/Account number : The account number identifier of the Account. This is the number that our customer is using.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BsnPtyCd">
+      <xs:annotation>
+        <xs:documentation>Business party code : The unique identifier of a business party.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmAddress_SUB_ContactAddressUsage">
+    <xs:annotation>
+      <xs:documentation>A set of addresses used by a specific contact.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CDev" type="CdmAddress_CommunicationDevice">
+        <xs:annotation>
+          <xs:documentation>Communication device is used by Contact address usage </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="AccNo">
+      <xs:annotation>
+        <xs:documentation>/Account number : The account number identifier of the Account. This is the number that our customer is using.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BsnPtyCd">
+      <xs:annotation>
+        <xs:documentation>Business party code : The unique identifier of a business party.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CntId">
+      <xs:annotation>
+        <xs:documentation>Contact identifier : The unique identifier of a business party.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmAddress_Address">
+    <xs:annotation>
+      <xs:documentation>A structured reference to a physical location for a business party.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TAddrCv" type="CdmAddress_TourAddressCoverage">
+        <xs:annotation>
+          <xs:documentation>Address is assigned to Tour address coverage </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AddrLng" type="CdmAddress_AddressInALanguage">
+        <xs:annotation>
+          <xs:documentation>Address has Address in a language </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AddrOpnHr" type="CdmAddress_AddressOpeningHours">
+        <xs:annotation>
+          <xs:documentation>Address is available during Address opening hours </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DevAtAddr" type="CdmAddress_DeviceAtAddress">
+        <xs:annotation>
+          <xs:documentation>Address can be contacted using Device at address </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AddrUsg" type="CdmAddress_AddressUsage">
+        <xs:annotation>
+          <xs:documentation>Address location for Address usage </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CDiv">
+        <xs:annotation>
+          <xs:documentation>Address location for Address usage </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+              <xs:annotation>
+                <xs:documentation>General Info</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="TyCd">
+            <xs:annotation>
+              <xs:documentation>Country division type code : Code that uniquely identifies a division type. Valid values are:
+A=Autonomous community
+B=Autonomous country region
+C=County
+D=District
+N=Canton
+O=Country (should be used when no division type for a country has been identified)
+P=Province
+R=Country region
+S=State</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="1" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="Cd">
+            <xs:annotation>
+              <xs:documentation>Country division code : A code that identifies the specified geographical division of the specified Country.
+Depending on the Country division type the country divsion might be a State, Province etc. This code will the actual value of the Country division.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="Nm">
+            <xs:annotation>
+              <xs:documentation>Country division name : Provides the name of the country division, e.g. the state name.</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="45" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="BOVer">
+      <xs:annotation>
+        <xs:documentation>Version of business object.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="7" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BOId">
+      <xs:annotation>
+        <xs:documentation>Id of business objects, this Id has to be unique.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:ID" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CntNm">
+      <xs:annotation>
+        <xs:documentation>/Contact name : Can contain the full name of a contact.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="75" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BsnOfclNm">
+      <xs:annotation>
+        <xs:documentation>/Business official name : The name of the business party.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Addr1">
+      <xs:annotation>
+        <xs:documentation>Address line 1 : Line one of a structured address</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Addr2">
+      <xs:annotation>
+        <xs:documentation>Address line 2 : Line two of a structured address</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Addr3">
+      <xs:annotation>
+        <xs:documentation>Address line 3 : Line three of a structured address</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="AddrId">
+      <xs:annotation>
+        <xs:documentation>Address identifier : A unique number for identifying an Address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="17" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="AddrNm">
+      <xs:annotation>
+        <xs:documentation>Address name : The name of the address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="AddrUpdRq">
+      <xs:annotation>
+        <xs:documentation>Address update requested by : The full name of the Contact who requested a delete of the Address record.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="75" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BldNm">
+      <xs:annotation>
+        <xs:documentation>Address building name : The name of a building, e.g. Kings House (not always indicative of the tenants or location).</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CDivCd">
+      <xs:annotation>
+        <xs:documentation>Country division code : A code that identifies the specified geographical division of the specified Country.
+Depending on the Country division type the country divsion might be a State, Province etc. This code will the actual value of the Country division.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CPEqDsc">
+      <xs:annotation>
+        <xs:documentation>Address customer premise equipment description : Describes the DHL software at this address if any.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CtryCd">
+      <xs:annotation>
+        <xs:documentation>Country code : The country code is a two-character code that uniquely identifies a country.  The code should be aligned to the ISO (ISO 3166-1-alpha-2 code elements) or in certain circumstances created by DHL. 
+Values are e.g.
+BE=Belgium
+FR=France
+XC=Curacao (Not ISO - part of Netherlands Antilles)</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CtyNm">
+      <xs:annotation>
+        <xs:documentation>City name : City name is the full name of a city within a country.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DHLScCd">
+      <xs:annotation>
+        <xs:documentation>DHL sector code : </xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="DhlSectorCode_12" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DHLSwInd">
+      <xs:annotation>
+        <xs:documentation>Address DHL software indicator : Indicates whether there is DHL software on the address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Dist">
+      <xs:annotation>
+        <xs:documentation>Address district : A geographical area within a city.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DlvPntBcd">
+      <xs:annotation>
+        <xs:documentation>Address delivery point barcode : Delivery point bar code.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Dptm">
+      <xs:annotation>
+        <xs:documentation>Address department : The name of the department within the address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="EstStpTm">
+      <xs:annotation>
+        <xs:documentation>Address estimated stop time : The estimated time where the courier normally makes his stop on this particular address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:duration" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="FcCd">
+      <xs:annotation>
+        <xs:documentation>Facility code : A three letter code that uniquely identifies a location within a service area.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="FcId">
+      <xs:annotation>
+        <xs:documentation>Facility identifier : Defines uniquely a physical location in DHL.
+
+When available, the facility identifier created by the Real Estate group is used, also known as Remas Id.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="12" />
+          <xs:fractionDigits value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Flr">
+      <xs:annotation>
+        <xs:documentation>Address floor : Indicates if the address is on a specific floor in the building.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="GeoCdLat">
+      <xs:annotation>
+        <xs:documentation>Geo code latitude : Also called the Parallel.  The distance north or south of the equator of a point on the earth's surface. This distance is measured in degrees, minutes, and seconds. Lines (parallels) of latitude circle the earth horizontally and are parallel to one another.  One minute of latitude equals one nautical mile.
+(south latitudes are negative)</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="10" />
+          <xs:fractionDigits value="7" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="GeoCdLgtd">
+      <xs:annotation>
+        <xs:documentation>Geo code longitude : Also called the meridian.
+The distance east or west of the prime meridian of a point on the earth's surface. Longitude is measured in degrees, minutes and seconds. Lines (meridians) of longitude create a geographic grid around the world and are not      parallel, but rather converge at the poles.
+(West longitude is depicted by negative values.)</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="10" />
+          <xs:fractionDigits value="7" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="GMTOff">
+      <xs:annotation>
+        <xs:documentation>Address GMT offset : Offset from GMT is the amount of time a time zone is ahead of or behind GMT.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="6" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="LcDsc">
+      <xs:annotation>
+        <xs:documentation>Address local description : Location description in local language (multi-Byte support)</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OAddrTyCd">
+      <xs:annotation>
+        <xs:documentation>Official address type code : A code identifying a type of address usage known to a regulatory issuing authority (for example importer-of-record address or business registered office address)
+Values are:
+RUL=Rural
+URB=Urban
+BUA=Business Area
+</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OwnBpCd">
+      <xs:annotation>
+        <xs:documentation>Owner business party code : The unique identifier of a business party.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OwnDsc">
+      <xs:annotation>
+        <xs:documentation>Address own description : Location (address) description in customer's own preferred form (e.g. Branch 743).</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="POBxN">
+      <xs:annotation>
+        <xs:documentation>Address post office box number : A unique number for a post office box issued by a postal authority, to a Customer to receive mail and/or shipments.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PoExmtInd">
+      <xs:annotation>
+        <xs:documentation>Address postal exempt indicator : Is the customer exempt from postal standarization.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Prvn">
+      <xs:annotation>
+        <xs:documentation>Address province : A geographical area within a country.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PudPnt">
+      <xs:annotation>
+        <xs:documentation>Address pickup/delivery point : Describes the pickup point at the address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Rmk">
+      <xs:annotation>
+        <xs:documentation>Address remark : Any remark regarding the address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="80" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Sdx">
+      <xs:annotation>
+        <xs:documentation>Address soundex : A generated soundex of the address' name.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="10" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="SqNo">
+      <xs:annotation>
+        <xs:documentation>Address sequence number : Updates to address. Requirement from Service Star.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="SrvaCd">
+      <xs:annotation>
+        <xs:documentation>Service area code : A three-letter code that uniquely identifies a service area within the DHL operations network.
+When a service area is equal to an IATA the same code is used. DHL has however, also defined local service areas, which are not equal to an IATA. This entity cover both the IATA and local service area.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="St">
+      <xs:annotation>
+        <xs:documentation>Address status : Indicates whether the Address is active or inactive.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="StrNAddtn">
+      <xs:annotation>
+        <xs:documentation>Address street number addition : Provides any additional information related to the street or house number.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="StrNm">
+      <xs:annotation>
+        <xs:documentation>Address street name : The name of the street.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="StrNo">
+      <xs:annotation>
+        <xs:documentation>Address street number : A numercial identifier of a building indicating the number within a street.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="TourId">
+      <xs:annotation>
+        <xs:documentation>Tour identifier : Code to uniquely identify a single execution of part or all of a master tour to carry out pick-ups and/or deliveries, as defined in the tour plan.
+
+The Tour identifier is structured. The first part  describes the Facility (REMAS id) that owns the Tour. The second part defines the individual tour itself.
+
+This tour identifier was substituted with "Address on tour" entity. This attribute is kept for backword compatibility.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="TSchDDtm">
+      <xs:annotation>
+        <xs:documentation>Tour scheduled departure datetime : The date and time the tour is scheduled to  depart from the origin.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="VIPInd">
+      <xs:annotation>
+        <xs:documentation>Address vip indicator : Indicates whether the address is important. Requirement from CSM in AP.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Zip">
+      <xs:annotation>
+        <xs:documentation>Postcode : Postal Area is a code used within countries and country division to uniquely identify pickup and delivery areas used by the national postal organisation. Used by DHL to match customer known addresses into DHL's network of service area's.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmAddress_AddressInALanguage">
+    <xs:annotation>
+      <xs:documentation>Specifies the specific attributes by which an Address uses and is known in a language using, where appropriate, a local character or pictograph set.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="BOVer">
+      <xs:annotation>
+        <xs:documentation>Version of business object.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="7" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BOId">
+      <xs:annotation>
+        <xs:documentation>Id of business objects, this Id has to be unique.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:ID" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="LngCd">
+      <xs:annotation>
+        <xs:documentation>Address Language code : DHL code to uniquely identify a language.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CntNm">
+      <xs:annotation>
+        <xs:documentation>/Contact name : Can contain the full name of a contact.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="75" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BsnOfclNm">
+      <xs:annotation>
+        <xs:documentation>/Business official name : The name of the business party.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Addr1">
+      <xs:annotation>
+        <xs:documentation>Address line 1 : Line one of a structured address</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Addr2">
+      <xs:annotation>
+        <xs:documentation>Address line 2 : Line two of a structured address</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Addr3">
+      <xs:annotation>
+        <xs:documentation>Address line 3 : Line three of a structured address</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="AddrId">
+      <xs:annotation>
+        <xs:documentation>Address identifier : A unique number for identifying an Address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="17" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="AddrNm">
+      <xs:annotation>
+        <xs:documentation>Address name : The name of the address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="AddrUpdRq">
+      <xs:annotation>
+        <xs:documentation>Address update requested by : The full name of the Contact who requested a delete of the Address record.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="75" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BldNm">
+      <xs:annotation>
+        <xs:documentation>Address building name : The name of a building, e.g. Kings House (not always indicative of the tenants or location).</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CDivCd">
+      <xs:annotation>
+        <xs:documentation>Country division code : A code that identifies the specified geographical division of the specified Country.
+Depending on the Country division type the country divsion might be a State, Province etc. This code will the actual value of the Country division.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CPEqDsc">
+      <xs:annotation>
+        <xs:documentation>Address customer premise equipment description : Describes the DHL software at this address if any.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CtryCd">
+      <xs:annotation>
+        <xs:documentation>Country code : The country code is a two-character code that uniquely identifies a country.  The code should be aligned to the ISO (ISO 3166-1-alpha-2 code elements) or in certain circumstances created by DHL. 
+Values are e.g.
+BE=Belgium
+FR=France
+XC=Curacao (Not ISO - part of Netherlands Antilles)</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CtyNm">
+      <xs:annotation>
+        <xs:documentation>City name : City name is the full name of a city within a country.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DHLScCd">
+      <xs:annotation>
+        <xs:documentation>DHL sector code : </xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="DhlSectorCode_12" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DHLSwInd">
+      <xs:annotation>
+        <xs:documentation>Address DHL software indicator : Indicates whether there is DHL software on the address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Dist">
+      <xs:annotation>
+        <xs:documentation>Address district : A geographical area within a city.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DlvPntBcd">
+      <xs:annotation>
+        <xs:documentation>Address delivery point barcode : Delivery point bar code.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Dptm">
+      <xs:annotation>
+        <xs:documentation>Address department : The name of the department within the address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="EstStpTm">
+      <xs:annotation>
+        <xs:documentation>Address estimated stop time : The estimated time where the courier normally makes his stop on this particular address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:duration" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="FcCd">
+      <xs:annotation>
+        <xs:documentation>Facility code : A three letter code that uniquely identifies a location within a service area.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="FcId">
+      <xs:annotation>
+        <xs:documentation>Facility identifier : Defines uniquely a physical location in DHL.
+
+When available, the facility identifier created by the Real Estate group is used, also known as Remas Id.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="12" />
+          <xs:fractionDigits value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Flr">
+      <xs:annotation>
+        <xs:documentation>Address floor : Indicates if the address is on a specific floor in the building.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="GeoCdLat">
+      <xs:annotation>
+        <xs:documentation>Geo code latitude : Also called the Parallel.  The distance north or south of the equator of a point on the earth's surface. This distance is measured in degrees, minutes, and seconds. Lines (parallels) of latitude circle the earth horizontally and are parallel to one another.  One minute of latitude equals one nautical mile.
+(south latitudes are negative)</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="10" />
+          <xs:fractionDigits value="7" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="GeoCdLgtd">
+      <xs:annotation>
+        <xs:documentation>Geo code longitude : Also called the meridian.
+The distance east or west of the prime meridian of a point on the earth's surface. Longitude is measured in degrees, minutes and seconds. Lines (meridians) of longitude create a geographic grid around the world and are not      parallel, but rather converge at the poles.
+(West longitude is depicted by negative values.)</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="10" />
+          <xs:fractionDigits value="7" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="GMTOff">
+      <xs:annotation>
+        <xs:documentation>Address GMT offset : Offset from GMT is the amount of time a time zone is ahead of or behind GMT.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="6" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="LcDsc">
+      <xs:annotation>
+        <xs:documentation>Address local description : Location description in local language (multi-Byte support)</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OAddrTyCd">
+      <xs:annotation>
+        <xs:documentation>Official address type code : A code identifying a type of address usage known to a regulatory issuing authority (for example importer-of-record address or business registered office address)
+Values are:
+RUL=Rural
+URB=Urban
+BUA=Business Area
+</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OwnBpCd">
+      <xs:annotation>
+        <xs:documentation>Owner business party code : The unique identifier of a business party.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OwnDsc">
+      <xs:annotation>
+        <xs:documentation>Address own description : Location (address) description in customer's own preferred form (e.g. Branch 743).</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="POBxN">
+      <xs:annotation>
+        <xs:documentation>Address post office box number : A unique number for a post office box issued by a postal authority, to a Customer to receive mail and/or shipments.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PoExmtInd">
+      <xs:annotation>
+        <xs:documentation>Address postal exempt indicator : Is the customer exempt from postal standarization.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Prvn">
+      <xs:annotation>
+        <xs:documentation>Address province : A geographical area within a country.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PudPnt">
+      <xs:annotation>
+        <xs:documentation>Address pickup/delivery point : Describes the pickup point at the address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Rmk">
+      <xs:annotation>
+        <xs:documentation>Address remark : Any remark regarding the address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="80" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Sdx">
+      <xs:annotation>
+        <xs:documentation>Address soundex : A generated soundex of the address' name.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="10" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="SqNo">
+      <xs:annotation>
+        <xs:documentation>Address sequence number : Updates to address. Requirement from Service Star.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="SrvaCd">
+      <xs:annotation>
+        <xs:documentation>Service area code : A three-letter code that uniquely identifies a service area within the DHL operations network.
+When a service area is equal to an IATA the same code is used. DHL has however, also defined local service areas, which are not equal to an IATA. This entity cover both the IATA and local service area.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="St">
+      <xs:annotation>
+        <xs:documentation>Address status : Indicates whether the Address is active or inactive.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="StrNAddtn">
+      <xs:annotation>
+        <xs:documentation>Address street number addition : Provides any additional information related to the street or house number.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="StrNm">
+      <xs:annotation>
+        <xs:documentation>Address street name : The name of the street.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="StrNo">
+      <xs:annotation>
+        <xs:documentation>Address street number : A numercial identifier of a building indicating the number within a street.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="TourId">
+      <xs:annotation>
+        <xs:documentation>Tour identifier : Code to uniquely identify a single execution of part or all of a master tour to carry out pick-ups and/or deliveries, as defined in the tour plan.
+
+The Tour identifier is structured. The first part  describes the Facility (REMAS id) that owns the Tour. The second part defines the individual tour itself.
+
+This tour identifier was substituted with "Address on tour" entity. This attribute is kept for backword compatibility.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="TSchDDtm">
+      <xs:annotation>
+        <xs:documentation>Tour scheduled departure datetime : The date and time the tour is scheduled to  depart from the origin.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="VIPInd">
+      <xs:annotation>
+        <xs:documentation>Address vip indicator : Indicates whether the address is important. Requirement from CSM in AP.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Zip">
+      <xs:annotation>
+        <xs:documentation>Postcode : Postal Area is a code used within countries and country division to uniquely identify pickup and delivery areas used by the national postal organisation. Used by DHL to match customer known addresses into DHL's network of service area's.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmAddress_AddressOpeningHours">
+    <xs:annotation>
+      <xs:documentation>Address opening hours points to the operating hours of the business party at an address, for each type of day and season.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OpnHr" type="CdmAddress_OpeningHours">
+        <xs:annotation>
+          <xs:documentation>Opening hours defines Address opening hours </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="InsdHrI">
+      <xs:annotation>
+        <xs:documentation>Address opening hours inside hours instruction : Instruction that needs to be followed during the address is open.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OutHrI">
+      <xs:annotation>
+        <xs:documentation>Address opening hours outside hours instruction : Instruction that needs to be followed when the address is closed.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmAddress_AddressUsage">
+    <xs:annotation>
+      <xs:documentation>Information about the business purpose that a BUSINESS PARTY's address is used for by DHL (e.g., Pickup, Delivery, Billing, SPS/DCS address).</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AddrUsgTy" type="CdmAddress_AddressUsageType">
+        <xs:annotation>
+          <xs:documentation>Address usage type is the reason for Address usage </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="SBTP_DscrCd">
+        <xs:annotation>
+          <xs:documentation>Address usage discriminator code</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:choice>
+            <xs:element minOccurs="0" name="AccAdu" type="CdmAddress_SUB_AccountAddressUsage">
+              <xs:annotation>
+                <xs:documentation>Account address usage</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="BpAdu" type="CdmAddress_SUB_BusinessPartyAddressUsage">
+              <xs:annotation>
+                <xs:documentation>Business party address usage</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="CntAdu" type="CdmAddress_SUB_ContactAddressUsage">
+              <xs:annotation>
+                <xs:documentation>Contact address usage</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="AccNo">
+      <xs:annotation>
+        <xs:documentation>/Account number : The account number identifier of the Account. This is the number that our customer is using.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="AddrAltId">
+      <xs:annotation>
+        <xs:documentation>Address alternative identifier : A unique number for identifying an Address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="17" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="AduTyCd">
+      <xs:annotation>
+        <xs:documentation>Address usage type code : A code that uniquely identifies a type of address usage, e.g. billing, pickup, delivery, main, mailing or account receivable.
+
+AGR=Agreement
+BIL=Billing
+COM=Commercial
+DLV=Delivery
+FIN=Financial 
+MKT=Marketing 
+PIC=Pickup
+RCV=Receivable
+SAL=Sales</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="AUId">
+      <xs:annotation>
+        <xs:documentation>Account unique identifier : A unique ten-digit number without leading zeros used to identify an account within DHL. The last digit is a check-digit calculated using the 'Modulus 7' method.
+
+This will be allocated during migration of accounts into GCDB.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="10" />
+          <xs:fractionDigits value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DptmOvrd">
+      <xs:annotation>
+        <xs:documentation>Address usage department override : Can override the department of the Address entity.
+</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DscrCd">
+      <xs:annotation>
+        <xs:documentation>Address usage discriminator code : A code that identifies the type of address usage based on who is using this information, e.g. business party address usage, contact address usage or account address usage. 
+
+Not to be confused with Address usage type, such as billing, pickup, delivery, main, mailing.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="EffDtm">
+      <xs:annotation>
+        <xs:documentation>Address usage effective datetime : The date and time the address usage is effective.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ExpDt">
+      <xs:annotation>
+        <xs:documentation>Address usage expiry date : The date and time the address usage is finished.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:date" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="FlrOvrd">
+      <xs:annotation>
+        <xs:documentation>Address usage floor override : Can override the floor of the Address entity.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OfcNo">
+      <xs:annotation>
+        <xs:documentation>Address usage office number : Indicates whether the address used can be more precise using an office number.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PrfInd">
+      <xs:annotation>
+        <xs:documentation>Address usage preference indicator : Indicates whether the address is the preferred one to be used.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Rmk">
+      <xs:annotation>
+        <xs:documentation>Address usage remark : Any note or remarks regarding the usage of the address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmAddress_AddressUsageType">
+    <xs:annotation>
+      <xs:documentation>Contains the types that are used for identifying address usage, e.g. billing, pickup, delivery, main, mailing.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="AduTyCd">
+      <xs:annotation>
+        <xs:documentation>Address usage type code : A code that uniquely identifies a type of address usage, e.g. billing, pickup, delivery, main, mailing or account receivable.
+
+AGR=Agreement
+BIL=Billing
+COM=Commercial
+DLV=Delivery
+FIN=Financial 
+MKT=Marketing 
+PIC=Pickup
+RCV=Receivable
+SAL=Sales</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Dsc">
+      <xs:annotation>
+        <xs:documentation>Address usage type description : A description of the address usage type.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="StCd">
+      <xs:annotation>
+        <xs:documentation>Status code : A code that uniquely identifies a status.  
+
+Possible values are:
+AC - Active
+IN - Inactive
+TR - Created
+CH - Changed
+AP - Accepted
+RJ - Rejected</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmAddress_CommunicationDevice">
+    <xs:annotation>
+      <xs:documentation>A contact number or electronic address for an office, 
+department, or staff member, e.g. home phone numbers,
+business phone numbers, fax numbers, beeper numbers, 
+e-mail addresses.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="BsnPtyCd">
+      <xs:annotation>
+        <xs:documentation>Business party code : The unique identifier of a business party.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CDevNo">
+      <xs:annotation>
+        <xs:documentation>Communication device number : The number (or e-mail address) for a DEVICE TYPE.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CDevTyCd">
+      <xs:annotation>
+        <xs:documentation>Communication device type code : The code for a communication method that can be used to reach e.g. a facility, staff contact. Values are:
+EML=Email
+EXT=Extension
+FAX=Fax
+MOB=Mobile
+REV=ReversePhoneNo
+SMS=SMS
+TEL=Phone
+TLX=Telex
+VML=Voice Mail
+URL=Website / URL
+</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CtryCd">
+      <xs:annotation>
+        <xs:documentation>Country code : The country code is a two-character code that uniquely identifies a country.  The code should be aligned to the ISO (ISO 3166-1-alpha-2 code elements) or in certain circumstances created by DHL. 
+Values are e.g.
+BE=Belgium
+FR=France
+XC=Curacao (Not ISO - part of Netherlands Antilles)</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DlAreaCd">
+      <xs:annotation>
+        <xs:documentation>Dialling area code : The area code used to contact a specific telephone number as designated by a country's telecommunications standards body.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="EffDt">
+      <xs:annotation>
+        <xs:documentation>Communication device effective date : The date the communication device is valid from.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ExpDt">
+      <xs:annotation>
+        <xs:documentation>Communication device expiry date : The date the communication device is not longer valid.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ExtNo">
+      <xs:annotation>
+        <xs:documentation>Communication device extension number : Contains the extension to the communication device if it exists.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OwnBpCd">
+      <xs:annotation>
+        <xs:documentation>Owner Business party code : The unique identifier of a business party.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PtyINtN">
+      <xs:annotation>
+        <xs:documentation>Party instruction note number : A number to identify an instruction note.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PtyITy">
+      <xs:annotation>
+        <xs:documentation>Party instruction type : A code to indicate the type of party to which an instruction note is related.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="SqNo">
+      <xs:annotation>
+        <xs:documentation>Communication device sequence number : A number indication that a business party can have more than communication device of the same type.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmAddress_DeviceAtAddress">
+    <xs:annotation>
+      <xs:documentation>Entity to define with which Communication devices (fax, telephone switchboard) a street address may be reached.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CDev" type="CdmAddress_CommunicationDevice">
+        <xs:annotation>
+          <xs:documentation>Communication device is used by Device at address </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="CDevTyCd">
+      <xs:annotation>
+        <xs:documentation>Communication device type code : The code for a communication method that can be used to reach e.g. a facility, staff contact. Values are:
+EML=Email
+EXT=Extension
+FAX=Fax
+MOB=Mobile
+REV=ReversePhoneNo
+SMS=SMS
+TEL=Phone
+TLX=Telex
+VML=Voice Mail
+URL=Website / URL
+</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmAddress_OpeningHours">
+    <xs:annotation>
+      <xs:documentation>Opening hours are the defined operating hours of an entity, defined for each day of the week.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="BreEndTm" type="xs:time">
+      <xs:annotation>
+        <xs:documentation>Opening hours break end time : A break start is a time of day, in 24 hour format, local time, when an address will open again after a temporarily close during the day (e.g. for lunch).</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="BreStrtTm" type="xs:time">
+      <xs:annotation>
+        <xs:documentation>Opening hours break start time : A break start is a time of day, in 24 hour format, local time, when an address will temporarily close during the day (e.g. for lunch).</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="DayClsTm" type="xs:time">
+      <xs:annotation>
+        <xs:documentation>Opening hours day closing time : A day closing time is a time of day, in 24 hour format, local time, that indicates the closing time of an address at the end of a work day.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="DayOpnTm" type="xs:time">
+      <xs:annotation>
+        <xs:documentation>Opening hours day opening time : Day Opening Time is a time of day, in 24 hour format, local time, that indicates the opening time of an address at the beginning of a work day.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="DLSvTmF" type="xs:time">
+      <xs:annotation>
+        <xs:documentation>Opening hours daylight saving time finish : A DST finish shows when the geographic entity in which the entity is situated stops using Daylight Saving Time.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="DLSvTmStrt" type="xs:time">
+      <xs:annotation>
+        <xs:documentation>Opening hours daylight saving time start : A DST start shows when the geographic entity in which the entity is situated stops using Daylight Saving Time.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="DowNo">
+      <xs:annotation>
+        <xs:documentation>Day of week number : A unique reference number for a day of the week.
+0=Sunday
+1=Monday
+2=Tuesday
+3=Wednesday
+4=Thursday
+5=Friday
+6=Saturday
+7=Holiday
+8=Weekdays</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:short" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Id">
+      <xs:annotation>
+        <xs:documentation>Opening hours identifier : A unique identifier for a set of hours details.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmAddress_TourAddressCoverage">
+    <xs:annotation>
+      <xs:documentation>Defines a list of tours which may serve at the address.
+Usually there will be only one tour from one network.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="NtwTyCd">
+      <xs:annotation>
+        <xs:documentation>Network type code : Contains the network type code that describes which network a product belongs to and a facility capability.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="Code_2" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="TourId">
+      <xs:annotation>
+        <xs:documentation>Tour identifier : Code to uniquely identify a single execution of part or all of a master tour to carry out pick-ups and/or deliveries, as defined in the tour plan.
+
+The Tour identifier is structured. The first part  describes the Facility (REMAS id) that owns the Tour. The second part defines the individual tour itself.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="TSDDtm">
+      <xs:annotation>
+        <xs:documentation>Tour scheduled departure datetime : The date and time the tour is scheduled to  depart from the origin.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:CF_HDR="http://www.dhl.com/DA/CF_Header" xmlns:cf="http://www.dhl.com/DA/CF_Main" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="OrderManagement.SOAP.CreateSupplyOrder" xmlns:CF_ORDER="http://www.dhl.com/DA/CF_Order" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:CF_ADD="http://www.dhl.com/DA/CF_Address" xmlns:CF_ERR="http://www.dhl.com/DA/CF_Error" name="createSupplyOrder" targetNamespace="OrderManagement.SOAP.CreateSupplyOrder" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="unqualified" targetNamespace="OrderManagement.SOAP.CreateSupplyOrder">
+      <xsd:import schemaLocation="../../../DhlCf/xsd/CF_1.046/CF_Address_ver_1.021.xsd" namespace="http://www.dhl.com/DA/CF_Address" />
+      <xsd:import schemaLocation="../../../DhlCf/xsd/CF_1.046/CF_ErrorMessage_ver_1.008.xsd" namespace="http://www.dhl.com/DA/CF_Error" />
+      <xsd:import schemaLocation="../../../DhlCf/xsd/CF_1.046/CF_Header_ver_1.010.xsd" namespace="http://www.dhl.com/DA/CF_Header" />
+      <xsd:import schemaLocation="../../../DhlCf/xsd/CF_1.046/CF_Order_ver_1.023.xsd" namespace="http://www.dhl.com/DA/CF_Order" />
+      <xsd:element name="createSupplyOrderRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="MSG">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="0" name="Hdr" type="CF_HDR:HDR" />
+                  <xsd:element name="Bd">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element minOccurs="0" name="Ord" type="CF_ORDER:CdmOrder_Order" />
+                        <xsd:element minOccurs="0" name="Addr" type="CF_ADD:CdmAddress_Address" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createSupplyOrderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="MSG">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="0" name="Hdr" type="CF_HDR:HDR" />
+                  <xsd:element minOccurs="0" name="Bd">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element minOccurs="0" name="Ord" type="CF_ORDER:CdmOrder_Order" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element minOccurs="0" maxOccurs="unbounded" name="DatTrErr" type="CF_ERR:DataTransferErrorMessage" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="createSupplyOrderResponse">
+    <wsdl:part name="createSupplyOrderResponse" element="tns:createSupplyOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="createSupplyOrderRequest">
+    <wsdl:part name="createSupplyOrderRequest" element="tns:createSupplyOrderRequest" />
+  </wsdl:message>
+  <wsdl:portType name="CreateSupplyOrderPort">
+    <wsdl:operation name="createSupplyOrder">
+      <wsdl:input name="createSupplyOrderRequest" message="tns:createSupplyOrderRequest" />
+      <wsdl:output name="createSupplyOrderResponse" message="tns:createSupplyOrderResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CreateSupplyOrderSOAP" type="tns:CreateSupplyOrderPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="createSupplyOrder">
+      <soap:operation soapAction="createSupplyOrder" />
+      <wsdl:input name="createSupplyOrderRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createSupplyOrderResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CreateSupplyOrder">
+    <wsdl:port name="CreateSupplyOrderPort" binding="tns:CreateSupplyOrderSOAP">
+      <soap:address location="http://esb-eu-uat-ws.dhl.com/soap" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

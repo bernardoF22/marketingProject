@@ -1,0 +1,492 @@
+﻿body {
+    margin-top: 75px;
+}
+
+.DHLLogo {
+    width: 120px;
+    height: 30px;
+}
+
+#DHLNavbar {
+    background-color: #ffcd00 !important;
+}
+
+    #DHLNavbar a.DHLPageTitle {
+        color: black;
+        font-weight: bold;
+        font-family: 'Microsoft JhengHei UI';
+    }
+
+    #DHLNavbar li,
+    #DHLNavbar li a {
+        font-family: 'Microsoft JhengHei Light';
+        font-size: 14px;
+        color: black;
+        vertical-align: middle;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    #DHLNavbar .dropdown-menu {
+        background-color: white !important;
+        border: 3px white solid !important;
+        border-radius: 4px;
+    }
+
+        #DHLNavbar .dropdown-menu li a {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+    #DHLNavbar .DHLLangPick {
+        padding-left: 5px;
+        padding-right: 5px;
+        display: inline;
+        float: right;
+    }
+
+        #DHLNavbar .DHLLangPick:last-child {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+#DHLFooter {
+    background-color: #ffcd00;
+    height: auto;
+    font-family: 'Calibri Light';
+    font-size: 14px;
+    color: black;
+    vertical-align: middle;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+    #DHLFooter .container {
+        margin-top: 5px;
+    }
+
+.DHLLoginForm {
+    margin-top: 10vh;
+    text-align: center;
+}
+
+    .DHLLoginForm #DHLLoginTitle {
+        font-family: 'Microsoft YaHei Light';
+        font-weight: bold;
+        color: black;
+    }
+
+    .DHLLoginForm .txtLoginForm,
+    .DHLLoginForm .txtLoginForm::placeholder {
+        background-color: transparent !important;
+        border-width: 0px 0px 2px 0px !important;
+        border-color: #FFCD00;
+        text-align: center;
+        color: black !important;
+        margin: 5px;
+        font-family: 'Calibri Light';
+        width: 250px;
+        font-size: 18px;
+        padding-bottom: 5px;
+    }
+
+    .DHLLoginForm button {
+        color: black !important;
+        border-radius: 4px;
+        background-color: transparent !important;
+    }
+
+        .DHLLoginForm button:hover {
+            background-color: rgb(0,0,0,0.05) !important;
+        }
+
+.DHLBtn {
+    margin: 10px 0px;
+    font-size: 14px;
+    padding: 5px 15px;
+    background-color: #FFCD00;
+    color: black;
+    border: 2px solid #FFCD00;
+    font-family: 'Microsoft YaHei Light';
+    font-weight: bold;
+}
+
+    .DHLBtn:hover {
+        background-color: #c9c9c9;
+        color: black;
+        border: 2px solid #FFCD00;
+    }
+
+.DHLBtnCollapsable {
+    text-decoration: none;
+    color: black;
+    background-color: transparent !important;
+    border: 0px;
+}
+
+.DHLCbx label {
+    font-weight: normal !important;
+    font-size: 14px;
+    padding-left: 5px;
+    display: table;
+}
+
+.DHLCbx input {
+    float: left;
+}
+
+.DHLBtnClean {
+    font-size: 14px;
+    padding: 5px 15px;
+    color: black;
+    background-color: transparent;
+    border: 2px solid #C9C9C9 !important;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+    .DHLBtnClean:hover {
+        background-color: rgb(0,0,0,0.15) !important;
+    }
+
+select.DHLBtnClean {
+    padding: 6px 15px !important;
+}
+
+.DHLSearchAWB {
+    margin-top: 2.5vh;
+    text-align: center;
+}
+
+.DHLHeaders {
+    font-family: 'Microsoft JhengHei UI';
+    font-weight: bold;
+    color: white;
+    margin-top: 15px;
+}
+
+.DHLDesc {
+    font-family: 'Calibri Light';
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+
+.DHLLabels {
+    font-weight: bold;
+    line-height: 2;
+}
+
+.DHLSearchAWB .txtAWB,
+.DHLSearchAWB .txtAWB::placeholder {
+    background-color: transparent !important;
+    border-width: 0px 0px 2px 0px !important;
+    border-color: #FFCD00;
+    text-align: center;
+    color: white !important;
+    margin: 15px 5px 15px 15px;
+    padding-bottom: 2px;
+    font-family: 'Microsoft YaHei Light';
+    width: 300px;
+    height: 42px;
+    font-size: 20px;
+}
+
+.DHLMainInfo {
+    margin: 2.5vh 0px;
+}
+
+    .DHLMainInfo .DHLMainIcon {
+        margin: 10px;
+        font-size: 46px;
+        color: white;
+    }
+
+.DHLContainer {
+    margin-top: 20px;
+    padding: 15px 5px;
+    color: white;
+    font-family: 'Microsoft YaHei UI Light';
+    border: 2px solid #FFCD00;
+}
+
+.DHLContainer1 {
+    margin-top: 20px;
+    padding: 15px 25px;
+    color: white;
+    font-family: 'Microsoft YaHei UI Light';
+    background-color: rgb(0,0,0,0.50);
+}
+
+.DHLHR {
+    border: 1px solid black;
+    margin: 6px 0px !important;
+}
+
+.DHLHRYellow {
+    border: 1px solid #ffcd00;
+    margin: 6px 0px !important;
+}
+
+#DHLHelpList {
+    font-size: 16px;
+}
+
+    #DHLHelpList li {
+        margin: 10px 0px;
+    }
+
+#DHLFAQList {
+    margin-bottom: 15px;
+}
+
+    #DHLFAQList .fas {
+        font-size: 20px;
+    }
+
+    #DHLFAQList .FAQList {
+        margin-left: 14px;
+    }
+
+.FAQList li {
+    padding-bottom: 7px;
+}
+
+.FAQList {
+    margin-top: 5px;
+}
+
+.DHLInfoList li {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    margin: 8px 0px;
+}
+
+.DHLInfoList {
+    margin: 7px 0px;
+    font-family: "Microsoft YaHei Light";
+}
+
+.DHLSection {
+    margin-top: 10px;
+    color: white;
+    font-family: 'Microsoft YaHei Light';
+    background-color: rgb(0,0,0,0.70);
+    padding-bottom: 15px;
+}
+
+.DHLBold {
+    font-weight: bold;
+    color: #FFCD00;
+    cursor: pointer;
+}
+
+/* update panel progress - Start */
+.BigUpdateProgressModalWithZIndex {
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: #3C3D3C;
+    opacity: 0.6;
+    moz-opacity: 0.60;
+    filter: alpha(opacity=60);
+    z-index: 2147483647;
+}
+
+.BigUpdateProgressImage {
+    margin-left: 45%;
+    margin-top: 25%;
+}
+/*update panel progress - end */
+
+
+/*gridview*/
+.table {
+    overflow-x: auto;
+    border: 0px !important;
+}
+
+    .table table tbody tr td a,
+    .table table tbody tr td span {
+        position: relative;
+        float: left;
+        padding: 6px 12px;
+        margin-left: -1px;
+        line-height: 1.42857143;
+        color: black;
+        text-decoration: none;
+        background-color: transparent;
+        border: 1px solid #ffcd00;
+    }
+
+    .table table > tbody > tr > td > span {
+        color: white;
+        cursor: default;
+        background-color: #ffcd00;
+        border-color: transparent;
+    }
+
+    .table table > tbody > tr > td:first-child > a,
+    .table table > tbody > tr > td:first-child > span {
+        margin-left: 0;
+    }
+
+    .table table > tbody > tr > td > a:hover,
+    .table table > tbody > tr > td > span:hover,
+    .table table > tbody > tr > td > a:focus,
+    .table table > tbody > tr > td > span:focus {
+        color: white;
+        background-color: #ffcd00;
+        border-color: transparent;
+    }
+/*end gridview */
+
+.cpTable {
+}
+
+    .cpTable thead {
+        background-color: #e5e5e5;
+        font-family: 'Calibri Light';
+        border-bottom: 0px !important;
+        color: black;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .cpTable tbody {
+        background-color: transparent;
+        font-family: 'Calibri Light';
+        font-weight: bold;
+        font-size: 13px;
+    }
+
+    .cpTable tr th,
+    .cpTable tr td {
+        text-align: center;
+        border: 1px solid #c9c9c9 !important;
+    }
+
+    .cpTable table tr td {
+        border: 0px solid transparent !important;
+    }
+
+.form-group {
+    border: 0px !important;
+}
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        margin-top: 5px !important;
+    }
+
+    .form-group .ProcessShipment {
+        margin: 5px 0px !important;
+    }
+
+.ProcessShipment {
+    margin: 5px 0px;
+    font-size: 14px;
+}
+
+    .ProcessShipment input,
+    .ProcessShipment textarea {
+        border: 1px solid white !important;
+        color: white !important;
+        margin-top: 3px;
+    }
+
+.DHLBtnFloatRight {
+    margin-top: 22px;
+    float: right;
+}
+
+.file-upload {
+    margin: 5px 0px;
+    font-size: 14px;
+    cursor: pointer;
+    height: 35px;
+    width: 100px;
+    text-align: center;
+}
+
+    .file-upload input {
+        top: 0;
+        left: 0;
+        margin: 0;
+        font-weight: bold;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+.GenericCollapsibleDiv {
+    border: 1px solid #C9C9C9;
+    border-radius: 4px;
+    font-family: 'Microsoft YaHei Light';
+    font-weight: bold;
+}
+
+
+.GenericCollapsiblePanelHeader {
+    background-color: #ffcd00;
+    height: 38px;
+    padding-top: 4px;
+}
+
+.GenericCollapsiblePanelContent {
+    padding: 10px;
+    overflow: hidden;
+}
+
+.GenericCollapsiblePanelText {
+    float: left;
+}
+
+.GenericCollapsiblePanelImg {
+    float: right;
+    padding-right: 5px;
+}
+
+.GenericCollapsiblePanelHeader {
+    padding-top: 6px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: black;
+}
+
+.MarginTop {
+    margin-top: 35px;
+}
+
+.MarginBottom {
+    margin-bottom: 75px;
+}
+
+button[disabled] {
+    border-color: #c9c9c9 !important;
+    background-color: #c9c9c9;
+}
+
+.modal-header {
+    font-family: 'Microsoft JhengHei UI';
+}
+
+.modal-content {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: 2px #FFCD00 solid;
+    font-family: 'Microsoft YaHei Light';
+}
+
+#myModalInfo {
+    font-size: 15px;
+}
+div[data-notify="container"]{
+    top: 60px!important;
+    right: 15px!important;
+}

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:java="clsTools" xmlns="http://www.dhl.com/DA/CF_Error" xmlns:CF_HDR="http://www.dhl.com/DA/CF_Header" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.dhl.com/DA/CF_Error">
+  <xsd:import schemaLocation="CF_Header_ver_1.010.xsd" namespace="http://www.dhl.com/DA/CF_Header" />
+  <xsd:complexType name="ErrorMessageGeneralInfo">
+    <xsd:annotation>
+      <xsd:documentation>Error Message General Info Type
+Information used by all error messages.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="Ty">
+      <xsd:annotation>
+        <xsd:documentation>Error message type identifier (CF).</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="Ver">
+      <xsd:annotation>
+        <xsd:documentation>Error Message version.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="7" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="GlId" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Global Identifier of Error Message. The primary identifier for the event. This property MUST be globally unique and MAY be used as the primary key for the event.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:ID">
+          <xsd:maxLength value="64" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="LcId" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Local identifier. A source supplied error identifier. There is no guarantee that this value is globally unique. </xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="128" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="CrDtm" type="xsd:dateTime">
+      <xsd:annotation>
+        <xsd:documentation>The date-time when the event was issued.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="Pri" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Priority
+Defines the importance of the event. The predefined priorities are:
+?? 10 Low
+?? 50 Medium
+?? 70 High
+The values are 0 to 100.  The reserved value
+for Low is 10, for Medium is 50, and for High is 70. Other priorities MAY be added but MUST NOT exceed 100.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:short">
+          <xsd:minInclusive value="0" />
+          <xsd:maxInclusive value="100" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="Sev" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Severity
+The perceived severity of the status the event is describing with respect to the
+application that reports the event. The predefined severity levels, in order of
+increasing severity, are as follows:
+?? 0 Unknown
+
+?? 10 Information MUST be used for cases when the event contains only general information and is not reporting an error.
+
+?? 20 Harmless MUST be used for cases in which the error event has no effect on the normal operation of the
+resource.
+
+?? 30 Warning MUST be used when it is appropriate to let the user decide if an action is needed in response to the event.
+
+?? 40 Minor MUST be used to indicate that action is needed, but the situation is not serious at this time.
+
+?? 50 Critical MUST be used to indicate that an immediate action is needed and the scope is broad (perhaps an imminent outage to a critical resource will result).
+
+?? 60 Fatal MUST be used to indicate that an error occurred, but it is too late to take remedial action.
+
+The associated values are 0 to 70. The reserved values start at 0 for Unknown and
+increase by increments of 10 to 60 for Fatal. Other severities MAY be added but MUST NOT exceed 70. This is an OPTIONAL property.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:short">
+          <xsd:minInclusive value="0" />
+          <xsd:maxInclusive value="70" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="SqNo" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Sequence Number
+A source-defined number that allows for multiple messages to be sent and processed in a logical order that is different than the
+order in which they arrived at the consumer location (e.g., an event server or
+management tools). The sequence number helps consumers to sort arrived messages that may arrive out-of-order. This is with
+respect to the creation time and to the particular reporter of the messages.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:long">
+          <xsd:minInclusive value="0" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="RptCt" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Repeat Count
+The number of occurrences of an identical error within a specific time interval. A value of 0 or no value is indicative of no repeat of the event detected.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:short">
+          <xsd:minInclusive value="0" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="ElpTm" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Elapsed Time
+This is the time interval or the elapsed time during which the number of identical events occurred (as specified by the repeatCount
+property). This property is expressed in microseconds. However, if repeatCount is specified (it has a non-zero value), then elapsedTime is
+REQUIRED.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:long">
+          <xsd:minInclusive value="0" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name="DataTransferErrorMessage">
+    <xsd:annotation>
+      <xsd:documentation>Error message related to data transfer.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="OrgHdr" type="CF_HDR:HDR">
+        <xsd:annotation>
+          <xsd:documentation>General Info</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="Rp" type="CF_HDR:PartIdentification">
+        <xsd:annotation>
+          <xsd:documentation>Reported by</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="ErrMsgGI" type="ErrorMessageGeneralInfo">
+        <xsd:annotation>
+          <xsd:documentation>Error Message GI</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:choice minOccurs="0" maxOccurs="unbounded">
+        <xsd:element minOccurs="0" name="TfErrMsg">
+          <xsd:annotation>
+            <xsd:documentation>Transfer Error Message: Error related to transfer</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:all>
+              <xsd:element minOccurs="0" name="ErrMsgDtl" type="MessageDetail">
+                <xsd:annotation>
+                  <xsd:documentation>Details of error message</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:all>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element minOccurs="0" name="DatErrMsg">
+          <xsd:annotation>
+            <xsd:documentation>Error related to data</xsd:documentation>
+          </xsd:annotation>
+          <xsd:complexType>
+            <xsd:all>
+              <xsd:element minOccurs="0" name="ErrMsgDtl" type="MessageDetail">
+                <xsd:annotation>
+                  <xsd:documentation>Details of error message</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element minOccurs="0" name="BOErr" type="BusinessObjectError">
+                <xsd:annotation>
+                  <xsd:documentation>Business object error</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+            </xsd:all>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:choice>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BusinessObjectError">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="BOId" type="BusinessObjectIdentification">
+        <xsd:annotation>
+          <xsd:documentation>Identification of business object.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="ErrMsgDtl" type="MessageDetail">
+        <xsd:annotation>
+          <xsd:documentation>Details of error message</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="FldErr" type="FieldError">
+        <xsd:annotation>
+          <xsd:documentation>Field error</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="MsgDtl" type="MessageDetail">
+        <xsd:annotation>
+          <xsd:documentation>Details of message</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FieldError">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="FldId" type="FieldIdentification">
+        <xsd:annotation>
+          <xsd:documentation>Identification of field</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="ErrMsgDtl" type="MessageDetail">
+        <xsd:annotation>
+          <xsd:documentation>Details of error message</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MessageDetail">
+    <xsd:attribute name="MsgCIgd">
+      <xsd:annotation>
+        <xsd:documentation>The index or the identifier for a message that is used for resolving the message text from a message catalog.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="128" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="MsgClg">
+      <xsd:annotation>
+        <xsd:documentation>The qualified name of the message catalog that
+contains the translated message specified by the
+msgCatalogId.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="128" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="Dsc">
+      <xsd:annotation>
+        <xsd:documentation>Description from catalog.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="128" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="DtlDsc">
+      <xsd:annotation>
+        <xsd:documentation>Detailed description: added information.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="128" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name="BusinessObjectIdentification">
+    <xsd:attribute name="BOTyAbbr">
+      <xsd:annotation>
+        <xsd:documentation>Business type abbreviation: Type of business object (for example Shp,Ord,Pcs ...)</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="BOId">
+      <xsd:annotation>
+        <xsd:documentation>Id of business object (for example shipment id, picec id ...)</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="BOXPth">
+      <xsd:annotation>
+        <xsd:documentation>XPath to business object</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="512" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name="FieldIdentification">
+    <xsd:attribute name="FldNm">
+      <xsd:annotation>
+        <xsd:documentation>Name of field</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="FldXPth">
+      <xsd:annotation>
+        <xsd:documentation>XPath to Field</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="512" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+</xs:schema>

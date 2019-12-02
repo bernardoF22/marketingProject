@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:java="clsTools" xmlns="http://www.dhl.com/DA/CF_Header" xmlns:CF_GI="http://www.dhl.com/DA/CF_GeneralInfo" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.dhl.com/DA/CF_Header">
+  <xsd:import schemaLocation="CF_GeneralInfo_ver_0.002.xsd" namespace="http://www.dhl.com/DA/CF_GeneralInfo" />
+  <xsd:simpleType name="DatetimeCymdhms_19">
+    <xsd:annotation>
+      <xsd:documentation>
+DateTime values may be viewed as objects with integer-valued year, month, day, hour and minute properties, a decimal-valued second property, and a boolean timezoned property. Each such object also has one decimal-valued method or computed property, timeOnTimeline, whose value is always a decimal number; the values are dimensioned in seconds, the integer 0 is 0001-01-01T00:00:00 and the value of timeOnTimeline for other dateTime values is computed using the Gregorian algorithm as modified for leap-seconds. The timeOnTimeline values form two related "timelines", one for timezoned values and one for non-timezoned values. Each timeline is a copy of the ·value space· of decimal, with integers given units of seconds. 
+Example:
+1980-12-23 24:00:00 = 1980-12-24T00:00:00
+
+Valuesformat 'CCYY-MM-DDThh:mm:ss'= the year in the usual Gregorian calendar= the century, values 19 to 20 (spaces not allowed)= the year, values 00 to 99 (spaces not allowed)= the month, values 01 to 12 (spaces not allowed)= the day, values 01 to 31 (spaces not allowed)= the hours, values 00 to 24 (spaces not allowed)= the minutes, values 00 to 59 (spaces not allowed)= the seconds, values 00 to 60 (spaces not allowed).
+</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:dateTime" />
+  </xsd:simpleType>
+  <xsd:simpleType name="DatetimeGmtOffset_6">
+    <xsd:annotation>
+      <xsd:documentation>
+Original Domain_Definition: Coded time difference between Local time and Universal time.
+Allowed values:	(-12:00,+12:00)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="6" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ApplicationSystemCode_5">
+    <xsd:annotation>
+      <xsd:documentation>
+Original Domain_Definition: The user-assigned code identifying an application, e.g. IBS = International Billing System. Also known as 'Application Name'.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="5" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CountryCode_2">
+    <xsd:annotation>
+      <xsd:documentation>
+Original Domain_Definition: Unique code for a Country.
+
+Global DHL codelist available in ESD. Codelist based on ISO 3166, containing alphanumeric codes.</xsd:documentation>
+      <xsd:documentation>
+Original Domain_Note: Global DHL codelist available in ESD.
+Codelist based on ISO 3166, containing alphanumeric codes.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="PartIdentification">
+    <xsd:annotation>
+      <xsd:documentation>Identification of part type.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="TAddr" type="TechAdd">
+        <xsd:annotation>
+          <xsd:documentation>String field identifying technicall address of the message on transport level.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="GId" type="GenIdentification">
+        <xsd:annotation>
+          <xsd:documentation>String field identifying general identifications of the message.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="AppCd">
+      <xsd:annotation>
+        <xsd:documentation>Application code.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="ApplicationSystemCode_5" />
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="AppVer">
+      <xsd:annotation>
+        <xsd:documentation>Application version.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="7" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="AppNm">
+      <xsd:annotation>
+        <xsd:documentation>Application name.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="CtryCd" type="CountryCode_2">
+      <xsd:annotation>
+        <xsd:documentation>ISO Country code of the part.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="CmptTy">
+      <xsd:annotation>
+        <xsd:documentation>Component Type
+Well-defined name that is used to characterize all instances of a given kind of component.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="512" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="CmptNm">
+      <xsd:annotation>
+        <xsd:documentation>Component Name
+Specifies the logical identity of a component. This property should contain the name of a particular application, product or  subsystem (e.g., IBM DB2). This value SHOULD be unique within the scope.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="256" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="CmptIdTy">
+      <xsd:annotation>
+        <xsd:documentation>Component Identifier Type
+Specifies the format and meaning of the component
+identified by this componentIdentification. 
+
+The nonexclusive reserved keywords for this property are:
+· ProductName
+· DeviceName
+· SystemName
+· ServiceName
+· Process
+· Application
+· Unknown</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="32" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="CmptId" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Component Identifier: Specifies a handle or identifier for the instance of the component that is specified by the component property (e.g., Grid Service Handle(GSH)4 or EJBHandle).</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="128" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="DivCd" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>The short name or code of a company within the DPWN Network.
+ABN=Airborne
+DPE=DPEE International
+DPD=DPEE Domestic
+DHL=DHL
+DAF=Danzas freight
+DAA=Danzas Air and Oceans
+LMS=Loomis
+DAZ=Danzas
+WDH=Former DHL
+</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="PtnrId" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Partner Identifier: Identifies the profile of the partner.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="PrcsId" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Process Identifier: This property identifies the process ID of the running
+component or subcomponent that generated the event.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="64" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="ThdId" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Thread Identifier: This property identifies the thread ID of the component
+or subcomponent that generated the event. This value changes with every new thread spawned by the process identified by processId.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="64" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name="TechAdd">
+    <xsd:annotation>
+      <xsd:documentation>Technical address.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="TAddr">
+      <xsd:annotation>
+        <xsd:documentation>Address value.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="250" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="TAddrTy">
+      <xsd:annotation>
+        <xsd:documentation>Type of technical address. (example: IPV4; IPV6; NWA; ISDN; ICD; OID-OSI; Dial; HWA; HID; X25; DCC; SNA; IPX; E.164; Hostname; FQHostname; Devicename				
+				)</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name="GenIdentification">
+    <xsd:annotation>
+      <xsd:documentation>General identification.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="Id">
+      <xsd:annotation>
+        <xsd:documentation>Identification value.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="IdTp">
+      <xsd:annotation>
+        <xsd:documentation>Type of identification.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name="HDR">
+    <xsd:annotation>
+      <xsd:documentation>Control Data.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xsd:annotation>
+          <xsd:documentation>General Info</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="Sndr" type="PartIdentification">
+        <xsd:annotation>
+          <xsd:documentation>Sender identification.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="Rcp" type="PartIdentification">
+        <xsd:annotation>
+          <xsd:documentation>Recipient identification.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="ErrPt" type="PartIdentification">
+        <xsd:annotation>
+          <xsd:documentation>Error recipient identification. Error part identification - where send error messages.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="Rpl" type="PartIdentification">
+        <xsd:annotation>
+          <xsd:documentation>Reply recipient. The ReplyTo header field contains a Destination supplied by a client when a message is sent. It is the destination where a reply to the message should be sent. Messages sent with a null ReplyTo value may be a notification of some event or they may just be some data the sender thinks is of interest. Messages sent with a ReplyTo value are typically expecting a response. A response may be optional; it is up to the client to decide.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="No" type="xsd:long">
+      <xsd:annotation>
+        <xsd:documentation>Message sequential number. Scope: Application</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="Id">
+      <xsd:annotation>
+        <xsd:documentation>Message identifier. Scope: Application</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="Ty">
+      <xsd:annotation>
+        <xsd:documentation>Type of message. Sample: 521 for Shipment details</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="TstInd">
+      <xsd:annotation>
+        <xsd:documentation>Test Indicator. Indicates wheter this message is used for testing.Default is 'N' for No.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="OprTy">
+      <xsd:annotation>
+        <xsd:documentation>Type of operation   (I - insert, U - update, D delete).</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="Ver">
+      <xsd:annotation>
+        <xsd:documentation>Message version. Version of file CF_Main_ver_XXXXX.xsd .</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="7" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="Dtm">
+      <xsd:annotation>
+        <xsd:documentation>Message creation datetime.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="DatetimeCymdhms_19" />
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="GmtOff">
+      <xsd:annotation>
+        <xsd:documentation>Message creation datetime offset.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="DatetimeGmtOffset_6" />
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="LstPrsdBy">
+      <xsd:annotation>
+        <xsd:documentation>Last processed by. Indicates the process or person that last processed the message.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="64" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="LstPrsdDtm">
+      <xsd:annotation>
+        <xsd:documentation>Last processed datetime. Provides the date and time for when the message was last processed.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="DatetimeCymdhms_19" />
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="LstPrsdGmtOff">
+      <xsd:annotation>
+        <xsd:documentation>Last processed datetime offset.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="DatetimeGmtOffset_6" />
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="ExpDtm">
+      <xsd:annotation>
+        <xsd:documentation>Expiration DateTime. When a message is sent, its expiration time is calculated as the sum of the timeto- live value specified on the send method and send datetime. On return from the send method, the message’s Expiration header field contains this value. When a message is received its Expiration header field contains this same value. If the time-to-live is specified as zero, expiration is set to zero to indicate that the message does not expire. When current time is later than an undelivered message’s expiration time, the message should be destroyed.  Clients should not receive messages that have expired; however.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="DatetimeCymdhms_19" />
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="Srv">
+      <xsd:annotation>
+        <xsd:documentation>Name of service on which data are published.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="CorrId">
+      <xsd:annotation>
+        <xsd:documentation>Correlation Message identification (Referenci to ID). A client can use Correlation ID header field to link one message with another. A typical use is to link a response message with its request message.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+</xs:schema>

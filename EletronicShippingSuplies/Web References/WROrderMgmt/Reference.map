@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://czcholsint1069.prg-dc.dhl.com:5555/DhlCf/xsd/CF_1.046/CF_Header_ver_1.010.xsd" filename="CF_Header_ver_1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://czcholsint1069.prg-dc.dhl.com:5555/DhlCf/xsd/CF_1.046/CF_ErrorMessage_ver_1.008.xsd" filename="CF_ErrorMessage_ver_1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://czcholsint1069.prg-dc.dhl.com:5555/DhlCf/xsd/CF_1.046/CF_Order_ver_1.023.xsd" filename="CF_Order_ver_1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://czcholsint1069.prg-dc.dhl.com:5555/DhlCf/xsd/CF_1.046/CF_GeneralInfo_ver_0.002.xsd" filename="CF_GeneralInfo_ver_0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://czcholsint1069.prg-dc.dhl.com:5555/invoke/DhlVetroFramework/repository/OrderManagement:OrderManagement_v2?wsdl" filename="createSupplyOrder.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://czcholsint1069.prg-dc.dhl.com:5555/DhlCf/xsd/CF_1.046/CF_Address_ver_1.021.xsd" filename="CF_Address_ver_1.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

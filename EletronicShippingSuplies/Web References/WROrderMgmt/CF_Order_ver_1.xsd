@@ -1,0 +1,3017 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:java="clsTools" xmlns="http://www.dhl.com/DA/CF_Order" xmlns:CF_GI="http://www.dhl.com/DA/CF_GeneralInfo" targetNamespace="http://www.dhl.com/DA/CF_Order" version="1.023" CF_GI:dummy="" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="CF_GeneralInfo_ver_0.002.xsd" namespace="http://www.dhl.com/DA/CF_GeneralInfo" />
+  <xs:simpleType name="AccountNumber_12">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Number to  identify an account.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="12" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AccountUniqueIdentifier_10">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: A ten digit number without leading zeroes. The last digit is a check digit calculated using Modulus 7.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="10" />
+      <xs:fractionDigits value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ApplicationSystemCode_5">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ApplicationSystemId_10">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Identification of an Application system.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BillingTypeCode_1">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BookingReference_10">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: A reference given to the Customer when booking a shipment.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BookingTypeCode_1">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BusinessParty_20">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: An identifier of a person or an organisation that DHL is interested in.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CashPaymentMethodTypeCode_1">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: A code indicating the Payment method used by a sender to settle the amount outstanding for a cash payment of a shipment charge.
+
+Only allowed values:
+C = Cash
+V = Voucher
+H = Bank cheque
+R = Credit card</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Only allowed values:
+C = Cash
+V = Voucher
+H = Bank cheque
+R = Credit card</xs:documentation>
+      <xs:documentation>Original Domain_Comment: A code indicating the Payment method used by a sender to settle the amount outstanding for a cash payment of a shipment charge.
+
+Only allowed values:
+C = Cash
+V = Voucher
+H = Bank cheque
+R = Credit card</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Code_1">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Code_2">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Code_3">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Code_4">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="4" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Code_5">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CountryCode_2">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Unique code for a Country.
+
+Global DHL codelist available in ESD. Codelist based on ISO 3166, containing alphanumeric codes.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Global DHL codelist available in ESD.
+Codelist based on ISO 3166, containing alphanumeric codes.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CurrencyCode_3">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Code to identify the Unit of currency.
+
+Global DHL codelist based on ISO standard 4217 (3-alpha code).
+DHL codelist defined in International Data Coding Standards Policy Document.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CurrencyExchangeRate_12_6">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: A ratio expressed as the value of one Currency in terms of another.</xs:documentation>
+      <xs:documentation>Original Domain_Comment: A ratio expressed as the value of one Currency in terms of another.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="12" />
+      <xs:fractionDigits value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CurrencyExchangeRate_18_6">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="18" />
+      <xs:fractionDigits value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DateCymd_10">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: A Point in time mark indicated by a specific Day.
+
+Message format = 'CCYY-MM-DD'
+CCYY = the year in the usual Gregorian calendar
+CC = the century, values 19 to 20 (spaces not allowed)
+YY = the year, values 00 to 99 (spaces not allowed)
+MM = the month, values 01 to 12 (spaces not allowed)
+DD = the day, values 01 to 31 (spaces not allowed)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:date" />
+  </xs:simpleType>
+  <xs:simpleType name="DateMonthCym_7">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: A Point in time mark indicating a specific Month.
+
+Message format 'CCYY/MM'
+CCYY = the year in the usual Gregorian calendar
+CC = the century, values 19 to 20 (spaces not allowed)
+YY = the year, values 00 to 99 (spaces not allowed)
+MM = the month, values 01 to 12 (spaces not allowed)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:date" />
+  </xs:simpleType>
+  <xs:simpleType name="DatetimeCymdhms_19">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: DateTime values may be viewed as objects with integer-valued year, month, day, hour and minute properties, a decimal-valued second property, and a boolean timezoned property. Each such object also has one decimal-valued method or computed property, timeOnTimeline, whose value is always a decimal number; the values are dimensioned in seconds, the integer 0 is 0001-01-01T00:00:00 and the value of timeOnTimeline for other dateTime values is computed using the Gregorian algorithm as modified for leap-seconds. The timeOnTimeline values form two related "timelines", one for timezoned values and one for non-timezoned values. Each timeline is a copy of the ??value space?? of decimal, with integers given units of seconds. 
+Example:
+1980-12-23 24:00:00 = 1980-12-24T00:00:00
+
+Valuesformat 'CCYY-MM-DDThh:mm:ss'= the year in the usual Gregorian calendar= the century, values 19 to 20 (spaces not allowed)= the year, values 00 to 99 (spaces not allowed)= the month, values 01 to 12 (spaces not allowed)= the day, values 01 to 31 (spaces not allowed)= the hours, values 00 to 24 (spaces not allowed)= the minutes, values 00 to 59 (spaces not allowed)= the seconds, values 00 to 60 (spaces not allowed).
+</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:dateTime" />
+  </xs:simpleType>
+  <xs:simpleType name="DatetimeGmtOffset_6">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Coded time difference between Local time and Universal time.
+Allowed values:	(-12:00,+12:00)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DhlCompanyEntityCode_6">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DpwnDivisionCode_3">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EventCode_5">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: A code defining the type events as defined by the Business.
+
+See Network Standard for ICE.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: This domain covers all existing events. See qualifier domain Shipment event group type cd[2] for the defined event types. 
+
+Global codelist defined in SMMS.
+Group: Network progress event    AR = Arrival in destination country
+AF = Arrived at Facility    
+DF = Departed from Facility   
+IC = Receipt into customs / bond
+CR = Release from customs / bond
+WC = With delivering courier
+FD = Onforward to third party (D)
+PD = Partial delivery
+PU = Shipment pickup
+PO = Processed at origin
+TR = Record of transit
+Group: Network completion event
+BR = Delivered by broker
+OK = Delivery
+DD = Delivered damaged
+DS = Disposal
+SS = Shipment stopped
+RT = Returned to consignor
+TP = Onforward to third party (ND)
+Group: Network service incident event
+BA = Bad address
+
+CA = Closed on arrival
+
+CC = Awaiting consignee collection
+
+CD = Customs delay
+
+CM = Consignee moved
+DM = Damaged
+HP = Held for payment
+MC = Miscode
+MD = Missed delivery cycle
+MS = Missort
+ND = Not delivered
+NH = Not home
+OH = On hold
+PM = Piece missing
+RD = Refused delivery
+SC = Service
+TD = Transit Delay
+XP = XP part of shipment
+ XX = XX total shipment</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FacilityIdentifier_12">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="12" />
+      <xs:fractionDigits value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HarmonisedNumber_4n">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Harmonised Number is a 4 digit number that helps to uniquely identify a Harmonised Code.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:simpleType name="IncotermCode_3">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: The valid terms of trade is a sub-set of the International Chamber Of Commerce???s Incoterms:
+EXW = Ex Works 
+FCA = Free Carrier
+FAS = Free Alongside Ship
+FOB = Free On Board
+CFR = Cost And Freight
+CIF = Cost, Insurance And Freight
+CPT = Carriage Paid To
+CIP = Carriage And Insurance Paid To
+DAF = Delivered At Frontier
+DES = Delivered Ex Ship
+DEQ = Delivered Ex Quay (Duty Paid)
+DDU = Delivered Duty Unpaid
+DDP = Delivered Duty Paid</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IndicatorYn_1">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: An generic indicator field that can either be set to Y or N.
+
+Only allowed values are:
+Y = Yes
+N = No</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Only allowed values are:
+Y = Yes
+N = No</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="InvoiceInternalNumber_N20">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="20" />
+      <xs:fractionDigits value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MonetaryAmount_18_3">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Note: When used, Monetary amount must be accompanied by a qualifier for the Monetary unit.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="18" />
+      <xs:fractionDigits value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Number">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Should only be used if the exact number domain has not been defined.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:simpleType name="Number_6_0">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Number of Employees.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="6" />
+      <xs:fractionDigits value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OrderNumber_20">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="20" />
+      <xs:fractionDigits value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PartyBankAccountNumber_20">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Unique number to identify a Bank account.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PartyBankCardNumber_16n">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: The number of a Bank card.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="16" />
+      <xs:fractionDigits value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PartyBankChequeNumber_8">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: A number that identifies a Bank cheque.
+
+A Bank cheque number needs a Bank account number to get a unique id for the Bank cheque.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: A Bank cheque number needs a Bank account number to get a unique id for the Bank cheque.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PartyCreditCardNumber_16">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: The number of a Credit card.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="16" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PartySignatoryNumber_16">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Number that authorises the use of a Bank card.
+
+Number issued by a Bank to a Bank card holder.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Number issued by a Bank to a Bank card holder.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="16" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PartyType_3">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Code specifying the function of a Contact (Person or Department) and gives a specific meaning to a Party.
+
+Actual values
+Global DHL codelist based on TDED 3139 and TDED 3035
+Examples of possible values:
+CA = Carrier
+PE = Payee contact
+SA = Sales Administration
+
+Release 1 values:
+AA = Party to be billed
+CO = Corporate office
+CN = Consignee
+PW = Despatch party
+
+SP1&amp;2 uses: ('CN,'PW')
+to distinguish pickup and delivery adresses.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Postcode_12">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Code defining a Postal area.
+
+Codelist at country-level.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Codelist at country-level.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="12" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ReasonCode_5">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Code identifying the reason behind a status event.
+
+Associated qualifier domain: Reason type code[3]
+
+DHL codelist on country-level.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Type/length: an..3
+Type: Code
+Length: 3</xs:documentation>
+      <xs:documentation>Original Domain_Comment: Code identifying the reason behind a status event.
+
+Associated qualifier domain: Reason type code[3]
+
+DHL codelist on country-level.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RmaNumber_40">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="40" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SequenceNumber_3n">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Number indicating the position in a sequence.
+
+This sequence number can be used for identification of page numbers, line numbers etc.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Type/length: na..6
+Type: Number
+Length: 3
+Decimals: 0</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:simpleType name="ServiceAreaCode_3">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Code identifying a Service area.
+
+Global DHL codelist, available in ESD.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Global DHL codelist, available in ESD.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ServiceCode_6">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Uniquely identifies a network service.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ServicePoint_6">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ServiceRequest_15">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="15" />
+      <xs:fractionDigits value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ShipmentIdentifier_35">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Note: These numbers are assigned by DHL. (The Shipment airwaybill number is not a unique identification for the Shipment.)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="35" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="String">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Should only be used if the exact string domain has not been defined.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TaxRate_6_3">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="6" />
+      <xs:fractionDigits value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TaxType_6">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_17">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for text.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="17" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_20">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for text.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_250">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for a text</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="250" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_3">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for a text</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_35">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for text.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Text can be a Description, Instruction, Remarks or a String.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="35" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_50">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for a text</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Text_70">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for a text</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: Text can be a Description,  Instruction, Remarks or a String.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="70" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Url_250">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="250" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UserName_10">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for text.</xs:documentation>
+      <xs:documentation>
+Original Domain_Note: char(18)</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Version_7">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Version information, typically associated with an application.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="7" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="XmlOperation_1">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Type of operation   (I - insert, U - update, D delete).</xs:documentation>
+      <xs:documentation>Original Domain_Comment: Type of operation   (I - insert, U - update, D delete).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DtmGMTOff_6">
+    <xs:annotation>
+      <xs:documentation>
+Original Domain_Definition: Generic domain for Coded time difference between Local time and Universal time.
+Allowed values:	(-12:00,+12:00).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+      <xs:minLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="DtmUTCType">
+    <xs:annotation>
+      <xs:documentation>Date and time expressed in UTC.
+
+http://www.w3.org/TR/NOTE-datetime
+
+Complete date plus hours, minutes and seconds:
+      YYYY-MM-DDThh:mm:ssTZD (eg 1997-07-16T19:20:30Z)
+
+where:
+
+     YYYY = four-digit year
+     MM   = two-digit month (01=January, etc.)
+     DD   = two-digit day of month (01 through 31)
+     hh   = two digits of hour (00 through 23) (am/pm NOT allowed)
+     mm   = two digits of minute (00 through 59)
+     ss   = two digits of second (00 through 59)
+     TZD  = time zone designator (Z)</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="xs:dateTime">
+        <xs:attribute name="Off" type="DtmGMTOff_6" use="required">
+          <xs:annotation>
+            <xs:documentation>Current local UTC time zone offset including daylight saving offset if applicable.
+
+A time zone offset of "+hh:mm" indicates that the date/time uses a local time zone which is "hh" hours and "mm" minutes ahead of UTC. 
+
+A time zone offset of "-hh:mm" indicates that the date/time uses a local time zone which is "hh" hours and "mm" minutes behind UTC.
+
+Example:
+1994-11-05T08:15:30 and offset -05:00 corresponds to November 5, 1994, 3:15:30 am, US Eastern Standard Time.
+
+UTC time: 1994-11-05T08:15:30
+Local time zone offset: -05:00
+
+US Eastern Standard Time is 05:00 behind UTC time.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="TmZnCd">
+          <xs:annotation>
+            <xs:documentation>Local time zone code
+
+The up to six-character code by which the standard zone time is normally referred (e.g. UTC - Coordinated Universal Time, PST - Pacific Standard Time, etc).</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:minLength value="1" />
+              <xs:maxLength value="6" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="OrdCFType">
+    <xs:annotation>
+      <xs:documentation>Business object messages.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Ord">
+        <xs:annotation>
+          <xs:documentation> Element for Order</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent mixed="false">
+            <xs:extension base="CdmOrder_Order" />
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_SUB_A_RCharge">
+    <xs:annotation>
+      <xs:documentation>Generated by the A/R application and interfaced into the transaction database. Keeps the charges that A/R application will charge if invoice not paid within an agreed period.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence />
+    <xs:attribute name="Ref">
+      <xs:annotation>
+        <xs:documentation>A/R charge reference : Describes the A/R charge and what it has been  charged upon.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_SUB_BulkPickUp">
+    <xs:annotation>
+      <xs:documentation>Provides the number of shipment and pieces that have been picked up using the Bulk Pick Up process.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence />
+    <xs:attribute name="BulkSNoPcs">
+      <xs:annotation>
+        <xs:documentation>Bulk shipment number of pieces : Provides the number of pieces picked up via a bulk pick up.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="6" />
+          <xs:fractionDigits value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BulkSNoS">
+      <xs:annotation>
+        <xs:documentation>Bulk shipment number of shipment : Provides the number of shipment picked up via a bulk pick up.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="6" />
+          <xs:fractionDigits value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ShpId">
+      <xs:annotation>
+        <xs:documentation>Shipment identifier : An identification number assigned to a shipment, controlled by DHL.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_SUB_CommercialJudgement">
+    <xs:annotation>
+      <xs:documentation>Manually generated credits based on commercial judgement rather than pricing driver adjustments. Requires an approval process.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence />
+    <xs:attribute name="Appr">
+      <xs:annotation>
+        <xs:documentation>Commercial judgement approved by : Contains name of the person that the commercial judgement is approved by.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ApprDt">
+      <xs:annotation>
+        <xs:documentation>Commercial judgement approved date : Contains the date the commercial judgement is approved.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ApprInd">
+      <xs:annotation>
+        <xs:documentation>Commercial judgement approved indicator : Indicates whether the commercial judgement is approved.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Entr">
+      <xs:annotation>
+        <xs:documentation>Commercial judgement entered by : Contains name of the person that the commercial judgement was created in the by.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="EntrDt">
+      <xs:annotation>
+        <xs:documentation>Commercial judgement entered date : Contains the date the commercial judgement was created in the database.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="RICCd">
+      <xs:annotation>
+        <xs:documentation>Event RIC reason code : A code to uniquely identify an event reason
+(RIC).</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="5" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Sbmt">
+      <xs:annotation>
+        <xs:documentation>Commercial judgement submitted by : Contains name of the person that the commercial judgement is submitted by.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="SbmtDt">
+      <xs:annotation>
+        <xs:documentation>Commercial judgement submitted date : Contains the date the commercial judgement is submitted.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_SUB_CustomsCharge">
+    <xs:annotation>
+      <xs:documentation>Contains the service transaction specific customs charges.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence />
+    <xs:attribute name="ACASt">
+      <xs:annotation>
+        <xs:documentation>Customs charge ACA status : Indicates the status on the ACA (Air Carfo Automation)</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DfrAccNo">
+      <xs:annotation>
+        <xs:documentation>Customs charge deferment account number : Contains the customer's account number used for deferment of the customs duties.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DstSrvaCd">
+      <xs:annotation>
+        <xs:documentation>Service area destination code : A code to identify a service area within the DHL operations network.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Dt">
+      <xs:annotation>
+        <xs:documentation>Customs charge date : Contains the date where charge has been created.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ECECstLmt">
+      <xs:annotation>
+        <xs:documentation>Customs charge ECE customs lodgment : Definition is awaiting.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="EntrTy">
+      <xs:annotation>
+        <xs:documentation>Customs charge entry type : Describes the entry of the customs charge.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="HmnCCd">
+      <xs:annotation>
+        <xs:documentation>Customs charge harmonised commodity code : Contains the harmonised commodity code that is applicable for the goods.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="18" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ImpClrRef">
+      <xs:annotation>
+        <xs:documentation>Customs charge import clearance reference : Contains the message or reference indicated on the import clearance document.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ImpRec">
+      <xs:annotation>
+        <xs:documentation>Customs charge importer of record : Contains the name of the importer responsible for the creating the charge.
+</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OrgSrvaCd">
+      <xs:annotation>
+        <xs:documentation>Service area origin code : A code to identify a service area within the DHL operations network.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="RcvZip">
+      <xs:annotation>
+        <xs:documentation>Receiver postcode : The postcode defining the delivery address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="RefHTS">
+      <xs:annotation>
+        <xs:documentation>Customs charge reference HTS : Contains the message or reference indicated on the HTS.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ShpDtm">
+      <xs:annotation>
+        <xs:documentation>Customs charge shipment datetime : The date and time written on the Air Waybill.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ShpId">
+      <xs:annotation>
+        <xs:documentation>Customs charge shipment identifier : An identification unique to each shipment air waybill that can be uptil 35 characters.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ShprZip">
+      <xs:annotation>
+        <xs:documentation>Shipper postcode : The postcode used at the pickup address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="T-formRef">
+      <xs:annotation>
+        <xs:documentation>Customs charge t-form reference : Contains the message or reference indicated on the T-form.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="UltRcv">
+      <xs:annotation>
+        <xs:documentation>Customs charge ultimate receiver : The name of the receiver that needs to pay for the charge.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_SUB_MinimumInvoiceCharge">
+    <xs:annotation>
+      <xs:documentation>Generated as part of the invoicing procress. Italy requires a minimum invoice amount, which will generate a transaction to make up the difference between this amount and the other charges.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_SUB_PeriodicCharge">
+    <xs:annotation>
+      <xs:documentation>System generated on their due date by a daily process.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence />
+    <xs:attribute name="PrdNm">
+      <xs:annotation>
+        <xs:documentation>Period name : The refererence name for a length or portion of time within a financial year.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="17" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_SUB_Shipment">
+    <xs:annotation>
+      <xs:documentation>Information about one or more PIECEs in DHL's custody for transportation which are destined for the same Receiver and united under the same airwaybill.
+
+Today, we are aware that duplicate Air waybill number exists. However, it is business requirement that we try to reduce the duplications.
+
+This entity only contains attributes that cannot change during the shipment life cycle.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence />
+    <xs:attribute name="DatId">
+      <xs:annotation>
+        <xs:documentation>Shipment data identifier : An identifier closely related to the License plate, which is represented in the Shipment Identifier. Data Identifier - DI - (standard ANSI/FACR-1) It is an alphanumeric string indicating the inteded use of the data, e.g. part number or quantity. The DI is made up of 0 to 3 numerics followed by an upper case alphabetic (DHL uses "J"). 
+As a sysnonym to DI is Application Identifier - AI - (ANS/UCC-4 or UCC/EAN-128). The AI can be 2 to 4 digits long.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="4" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DPWNDivCd">
+      <xs:annotation>
+        <xs:documentation>DPWN division code : The short name or code of a company within the DPWN Network.
+ABN=Airborne
+DPE=DPEE International
+DPD=DPEE Domestic
+DHL=DHL
+DAF=Danzas freight
+DAA=Danzas Air and Oceans
+LMS=Loomis
+DAZ=Danzas
+WDH=Former DHL</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Dtm">
+      <xs:annotation>
+        <xs:documentation>Shipment datetime : The date and time written on the Waybill/shipping document.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Id">
+      <xs:annotation>
+        <xs:documentation>Shipment identifier : An identification number assigned to a shipment, controlled by DHL.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="UCR">
+      <xs:annotation>
+        <xs:documentation>Unique consignment reference : The Unique Consignment Reference (UCR) is a number for Customs use and may be required to be reported to Customs at any point during a Customs procedure.
+It should be applied to all international goods movement for which Customs control is required. 
+The UCR will provide the Customs with a efficient tool to exchange information between enforcement agencies.
+The UCR has to be able to uniquely identify data related to individual international trade transactions between a supplier and a customer at both the national and international level for a sufficient period of time in accordance with national data retention rules.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_Incoterm">
+    <xs:annotation>
+      <xs:documentation>Internationally recognised terms for transport services as defined by the International Chamber of Commerce (Incoterms 1990).
+
+The purpose of Incoterms is to provide a set of international rules for the interpretation of the most commonly used trade terms in foreign trade. Thus, the uncertainties of different interpretations of such terms in different countries can be avoided or at least reduced to a considerable degree.
+The terms are grouped into four different categories:
+
+the E term - Ex works
+the seller only makes the goods available to the buyer at the seller's own premises
+
+the F terms - FCA, FAS, FOB
+the seller must deliver the goods to a carrier appointed by the buyer
+
+the C terms - CFR, CIF, CPT, CIP
+the seller has to contract for carriage, but without assuming the risk of loss of or damage to the goods after shipment and dispatch
+
+the D terms - DAF, DES, DEQ, DDU, DDP
+the seller must bear all costs and risks needed to bring the goods to the place of destination</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Cd">
+      <xs:annotation>
+        <xs:documentation>Incoterm code : Defines uniquely an Incoterm. These are following codes:
+
+EXW - Ex Works (... named place)
+FCA - Free Carrier (... named place)
+FAS - Free Alongside Ship (... named port of shipment)
+FOB - Free on Board (... named port of shipment)
+CFR - Cost and Freight (... named port of destination)
+CIF - Cost, Insurance and Freight (... named port of destination)
+CPT - Carriage Paid To (... named place of destination)
+CIP - Carriage and Insurance Paid To (... named place of destination)
+DAF - Delivered at Frontier (... named place)
+DES - Delivered Ex Ship (... named port of destination)
+DEQ - Delivered Ex Quay (... named port of destination)
+DDU - Delivered Duty Unpaid (... named place of destination)
+DDP - Delivered Duty Paid (... named place of destination)</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DflInd">
+      <xs:annotation>
+        <xs:documentation>Incoterm default indicator : Indicator showing whether the incoterm is the network default</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Dsc">
+      <xs:annotation>
+        <xs:documentation>Incoterm description : A textual description of the incoterm.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="GrpCd">
+      <xs:annotation>
+        <xs:documentation>Incoterm group code : Each Incoterm is categorised further: 
+Group E - Departure
+Group F - Main Carriage Unpaid
+Group C - Main Carriage Paid
+Group D - Arrival
+
+
+ 
+
+</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_OrderDtmType">
+    <xs:annotation>
+      <xs:documentation>A list of Shipment delivery date time is required for a Shipment.
+
+This entity allows for capture and maintenance of an unrestricted number of the Shipment delivery datetimes.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TyCd">
+        <xs:annotation>
+          <xs:documentation>Order delivery datetime type code
+
+Requested Delivery Date/Time (RDD)
+The delivery date/time the Shipper, Receiver, Payer or other authorized party has requested.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+            <xs:maxLength value="5" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="Dtm" type="DtmUTCType">
+        <xs:annotation>
+          <xs:documentation>Order datetime
+
+The Order datetime of the specified type.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_Order">
+    <xs:annotation>
+      <xs:documentation>A logical grouping of services provided or to be provided by DHL in response to a customer request.
+
+An order contains information of the type of service required (i.e. transport, logistics, etc.) and the requesting party. It consists in turn of one or more order lines, which contain the details of the individual services making up the order.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="20" name="CDtl" type="CdmOrder_OrderCustomerDetail">
+        <xs:annotation>
+          <xs:documentation>Order has customer detail </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Inctrm" type="CdmOrder_Incoterm">
+        <xs:annotation>
+          <xs:documentation>Incoterm describes Order </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrdRef" type="CdmOrder_OrderReference">
+        <xs:annotation>
+          <xs:documentation>Order may have Order reference </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrdAddInf" type="CdmOrder_OrderAdditionalInformation">
+        <xs:annotation>
+          <xs:documentation>Order may have Order additional information </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrdCnt" type="CdmOrder_OrderContact">
+        <xs:annotation>
+          <xs:documentation>Order has Order contact </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrdCCCnt" type="CdmOrder_OrderCustomersCustomerContact">
+        <xs:annotation>
+          <xs:documentation>Order may have Order customer's customer contact </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrdLn">
+        <xs:annotation>
+          <xs:documentation>Order issues Order line </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent mixed="false">
+            <xs:extension base="CdmOrder_OrderLine" />
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrdEvt" type="CdmOrder_OrderEvent">
+        <xs:annotation>
+          <xs:documentation>Order has Order event </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrdNt" type="CdmOrder_OrderNote">
+        <xs:annotation>
+          <xs:documentation>Order may have attached Order note </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="10" name="Dtm" type="CdmOrder_OrderDtmType">
+        <xs:annotation>
+          <xs:documentation>Order datetime
+
+Order can have associated various datetimes.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="OrdNo" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Order number : A unique number identifying a particular order.
+</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="BOVer">
+      <xs:annotation>
+        <xs:documentation>Version of business object.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="7" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BOId">
+      <xs:annotation>
+        <xs:documentation>Id of business objects, this Id has to be unique.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:ID" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="AUId">
+      <xs:annotation>
+        <xs:documentation>Account unique identifier : A unique ten-digit number without leading zeros used to identify an account within DHL. The last digit is a check-digit calculated using the 'Modulus 7' method.
+
+This will be allocated during migration of accounts into GCDB.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="10" />
+          <xs:fractionDigits value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BkgChnCd">
+      <xs:annotation>
+        <xs:documentation>Booking channel code : Identifies the booking channel used for the shipment.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BkgDt">
+      <xs:annotation>
+        <xs:documentation>Booking date : The date when the courier needs to attend the customer premises in order to pick up the shipments.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:date" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BkgRef">
+      <xs:annotation>
+        <xs:documentation>Booking reference : A reference that is used to associate an order with a booking.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="10" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BkgSrcAppCd">
+      <xs:annotation>
+        <xs:documentation>Booking source application code : A code to uniquely define an application/system, e.g. 
+DST
+Eurion
+GCA.
+Network (In case a division has a network standard checkpoint/event structure this default code can be used)
+</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="10" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BkgTyCd">
+      <xs:annotation>
+        <xs:documentation>Booking type code : A code to uniquely identify a booking types used within the booking systems.
+
+Valid types are
+A = Adhoc Advance 
+S = Adhoc Same day or Special 
+R = Regular
+U = Unknown</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CrDtm">
+      <xs:annotation>
+        <xs:documentation>Order creation datetime : Indicates the date and time for creation of the order.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OrdTyCd">
+      <xs:annotation>
+        <xs:documentation>Order type code : Identifies uniquely an order type.
+BLK=Bulk Pick Up
+NEW=New Purchase Order
+RPR=Repair Purchase Order
+SHP=Shipment</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="RMANo">
+      <xs:annotation>
+        <xs:documentation>Order RMA number : A number provided by the customer to uniquely identify a Repair and return order.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="40" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="RtLbCd">
+      <xs:annotation>
+        <xs:documentation>Order return label code : Code to identify if a good or defective part is returned and to which address to send it.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="5" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="SrcRef">
+      <xs:annotation>
+        <xs:documentation>Order source reference : A source specific identifier for a logical grouping of services provided or to be provided by DHL in response to a customer request.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="SrvRqNo">
+      <xs:annotation>
+        <xs:documentation>Service request number : A unique number identifying a particular request or ticket.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="15" />
+          <xs:fractionDigits value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Pri">
+      <xs:annotation>
+        <xs:documentation>Priority: "Defines in which priority the handling instruction should be processed:?? 10 Low?? 50 Medium?? 70 HighThe values are 0 to 100. The reserved valuefor Low is 10, for Medium is 50, and for High is 70. Other priorities MAY be added but MUST NOT exceed 100."</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_OrderAdditionalInformation">
+    <xs:annotation>
+      <xs:documentation>Contains additional attributes that the Customer wants to send related to an order.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="AttNm">
+      <xs:annotation>
+        <xs:documentation>Order additional information attribute name : Provides the name of the additional attribute required.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="AttVal">
+      <xs:annotation>
+        <xs:documentation>Order additional information attribute value : Gives the value related to the required additional attribute.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_OrderContact">
+    <xs:annotation>
+      <xs:documentation>Lists the contact references given against the order.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="CntId">
+      <xs:annotation>
+        <xs:documentation>Contact identifier : The unique identifier of a business party.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CntTy">
+      <xs:annotation>
+        <xs:documentation>Contact type : The role in which a contact operates when doing business with DHL, e.g. Pick-up contact.
+Values are:
+DMK=Decision Maker
+INF=Influencer
+PIC=Pickup contact
+MAL=Mail contact
+COL=Collection
+MKT=Marketing
+SAL=Sales
+DLV=Delivery
+COM=Commercial Contact
+PRO=Process
+APR=Approver
+USR=User
+ACR=Account receivables
+BIL=Billing
+DHL=Internal DHL Contact
+TEC=Technical
+AGR=Agreement
+FIN=Financial 
+RCV=Receivable
+</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CustId">
+      <xs:annotation>
+        <xs:documentation>Customer identifier : The unique identifier of a business party.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_OrderCustomersCustomerContact">
+    <xs:annotation>
+      <xs:documentation>Describes the contacts that have been identified from the Customer's customer against an order. Often used by Customer Interface Services, 2LRR and logistics.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="CCId">
+      <xs:annotation>
+        <xs:documentation>Customer's customer identifier : The unique identifier of a business party.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_OrderEvent">
+    <xs:annotation>
+      <xs:documentation>Contains information about the order status during its life.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="EvtCd">
+      <xs:annotation>
+        <xs:documentation>Event code : The code uniquely identifying an event.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="5" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="EvtDtm">
+      <xs:annotation>
+        <xs:documentation>Order event datetime : The date and time that the Order event occured or was first recognised.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="EvtRmk">
+      <xs:annotation>
+        <xs:documentation>Order event remarks : Any relevant remarks regarding the shipment event.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="GenFcId">
+      <xs:annotation>
+        <xs:documentation>Facility generated identifier : Defines uniquely a physical location in DHL.
+
+When available, the facility identifier created by the Real Estate group is used, also known as Remas Id.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="12" />
+          <xs:fractionDigits value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="RecFcId">
+      <xs:annotation>
+        <xs:documentation>Facility recorded identifier : Defines uniquely a physical location in DHL.
+
+When available, the facility identifier created by the Real Estate group is used, also known as Remas Id.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="12" />
+          <xs:fractionDigits value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="RICCd">
+      <xs:annotation>
+        <xs:documentation>Event RIC reason code : A code to uniquely identify an event reason
+(RIC).</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="5" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_OrderLine">
+    <xs:annotation>
+      <xs:documentation>A component of an order, identifying one service making up that order.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrdLnAdInf" type="CdmOrder_OrderLineAdditionalInformation">
+        <xs:annotation>
+          <xs:documentation>Order line may have Order line additional information </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrdLnNt" type="CdmOrder_OrderLineNote">
+        <xs:annotation>
+          <xs:documentation>Order line has associated Order line note </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="20" name="SCDtl" type="CdmOrder_OrderCustomerDetail">
+        <xs:annotation>
+          <xs:documentation>Order line can have customer detail </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrdLnEvt" type="CdmOrder_OrderLineEvent">
+        <xs:annotation>
+          <xs:documentation>Order line has recorded Order line event </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrdLnTr" type="CdmOrder_OrderLineTransaction">
+        <xs:annotation>
+          <xs:documentation>Order line consists of Order line transaction </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="SBTP_OrdLnTyCd">
+        <xs:annotation>
+          <xs:documentation>Order line type code</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:choice>
+            <xs:element minOccurs="0" name="ArChrg" type="CdmOrder_SUB_A_RCharge">
+              <xs:annotation>
+                <xs:documentation>A/R charge</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="BulkPickUp" type="CdmOrder_SUB_BulkPickUp">
+              <xs:annotation>
+                <xs:documentation>Bulk pick up</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="CmrcJdg" type="CdmOrder_SUB_CommercialJudgement">
+              <xs:annotation>
+                <xs:documentation>Commercial judgement</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="CstChrg" type="CdmOrder_SUB_CustomsCharge">
+              <xs:annotation>
+                <xs:documentation>Customs charge</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="MnInvChrg" type="CdmOrder_SUB_MinimumInvoiceCharge">
+              <xs:annotation>
+                <xs:documentation>Minimum invoice charge</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PrdChrg" type="CdmOrder_SUB_PeriodicCharge">
+              <xs:annotation>
+                <xs:documentation>Periodic charge</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Shp" type="CdmOrder_SUB_Shipment">
+              <xs:annotation>
+                <xs:documentation>Shipment</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="GPSrCd">
+      <xs:annotation>
+        <xs:documentation>Global product and service code : Uniquely identifies a service, either a transportation service, feature, periodic charge or any other type of service that DHL or its partners provide.
+
+Current services are:
+A= Auto Reversals
+B=Consolidated Clearance
+D= Worldwide Document
+E=Start Day Declare
+F=Air Freight
+G=Day Definite (Domestic)
+H=Day Definite (International)
+J=Airport to Door Express
+K=Start Day Non-Declare
+N=Domestic Express
+O=Others
+P=Worldwide Parcel
+R=Global Mail
+S=Same Day
+T=Mid Day Non-Declare
+U=Euro Union Express
+W=Definite for Declare
+X=Express Envelope
+Y=Mid Day Declare
+Z=Non Revenue Items</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="6" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="GPSrClCd">
+      <xs:annotation>
+        <xs:documentation>Global product and service classification code : A code to uniquely classify a product or service.
+Values are:
+P=Product
+S=Service</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ImgLoc">
+      <xs:annotation>
+        <xs:documentation>Order line image location : Contains the URL/location of the image.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="250" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OrdLnNo">
+      <xs:annotation>
+        <xs:documentation>Order line number : Identify uniquely the line item within an order.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OrdLnQ">
+      <xs:annotation>
+        <xs:documentation>Order line quote : The price quoted to the Customer by DHL at the time of the ordering the service.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="18" />
+          <xs:fractionDigits value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OrdLnTyCd">
+      <xs:annotation>
+        <xs:documentation>Order line type code : Identifies uniquely the order line type, e.g. shipment, other charges, judgment charges etc.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OrdTyCd">
+      <xs:annotation>
+        <xs:documentation>Order type code : Identifies uniquely an order type.
+BLK=Bulk Pick Up
+NEW=New Purchase Order
+RPR=Repair Purchase Order
+SHP=Shipment</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="SrvDtm">
+      <xs:annotation>
+        <xs:documentation>Order line service datetime : The date and time the service was requested by the customer. Used to determine, which tariff to use.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ItemTy">
+      <xs:annotation>
+        <xs:documentation>Order line item type</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1" />
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Qty" type="xs:decimal">
+      <xs:annotation>
+        <xs:documentation>Orde Line Quantity
+
+The quantity of the order line items.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_OrderLineAdditionalInformation">
+    <xs:annotation>
+      <xs:documentation>Contains additional attributes that the Customer wants to send related to an order line.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="AttNm">
+      <xs:annotation>
+        <xs:documentation>Order line additional information attribute name : Provides the name of the additional attribute required.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="AttVal">
+      <xs:annotation>
+        <xs:documentation>Order line additional information attribute value : Provides the value of the additional attribute required.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_OrderLineEvent">
+    <xs:annotation>
+      <xs:documentation>Information about events in time, which detail the events that can occur to an order line.
+Events will provide the status of an order line, at a point in time.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="EvtCd">
+      <xs:annotation>
+        <xs:documentation>Event code : The code uniquely identifying a valid event.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="5" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="EvtDtm">
+      <xs:annotation>
+        <xs:documentation>Order line event datetime : The date and time that the Order line event occured or was first recognised.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="GenFcId">
+      <xs:annotation>
+        <xs:documentation>Facility generated identifier : Defines uniquely a physical location in DHL.
+
+When available, the facility identifier created by the Real Estate group is used, also known as Remas Id.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="12" />
+          <xs:fractionDigits value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="RecFcId">
+      <xs:annotation>
+        <xs:documentation>Facility recorded identifier : Defines uniquely a physical location in DHL.
+
+When available, the facility identifier created by the Real Estate group is used, also known as Remas Id.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="12" />
+          <xs:fractionDigits value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="RICCd">
+      <xs:annotation>
+        <xs:documentation>Event RIC reason code : A code to uniquely identify an event reason
+(RIC).</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="5" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Rmk">
+      <xs:annotation>
+        <xs:documentation>Order line event remarks : Any relevant remarks regarding the shipment event.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_OrderLineNote">
+    <xs:annotation>
+      <xs:documentation>Any remarks noticed during processing the order is entered per order line.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="CntId">
+      <xs:annotation>
+        <xs:documentation>Contact identifier : The unique identifier of a business party.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Dtm">
+      <xs:annotation>
+        <xs:documentation>Order line note datetime : The date and time the remark is entered.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Entr">
+      <xs:annotation>
+        <xs:documentation>Order line note entered by : Contains the name of the customer service agenet that entered the note.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="NtTyCd">
+      <xs:annotation>
+        <xs:documentation>Note type code : Identifies uniquely a note type.
+Values are e.g.
+BUR=Business resident
+ESS=Registered for ESS
+ISS=Past issues
+OPU=Advised online PU
+REQ=Additional Requirements
+VER=Verification
+</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Sbj">
+      <xs:annotation>
+        <xs:documentation>Order line note subject : Contains the subject of the note.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Txt">
+      <xs:annotation>
+        <xs:documentation>Order line note text : A text describing the problem or situation that has occured.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="250" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_OrderLineTransaction">
+    <xs:annotation>
+      <xs:documentation>The expression of an order line as a financial entry. It contains all information required to bill the order line, e.g. the account, the amount to be billed etc.
+Typically, there is only one order line transaction per order line, except in case a previously invoiced order line needs to be corrected or if an order line is billed to more than one account.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrdLnTrTx" type="CdmOrder_OrderLineTransactionTax">
+        <xs:annotation>
+          <xs:documentation>Order line transaction may have Order line transaction tax </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="BTyCd">
+      <xs:annotation>
+        <xs:documentation>Billing type code : The identifier of a specific billing type. It indicates where a transaction was billed in relation to the service delivery. 
+
+Values:
+I = Inbound
+O = Outbound
+T= Third country
+C = Combined
+X = Not specified</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CrDtm">
+      <xs:annotation>
+        <xs:documentation>Order line transaction creation datetime : The date and time the order line transaction was created.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DhlEntChrg">
+      <xs:annotation>
+        <xs:documentation>Order line transaction charge in DHL company entity currency : The amount to be charged for the Shipment for the Charge type, expressed in DHL company entity  currency.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="18" />
+          <xs:fractionDigits value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DhlEntCurCd">
+      <xs:annotation>
+        <xs:documentation>DHL Company entity iso currency code : Currency ID is the three-character alphabetic unique identifier issued by the ISO 
+(International Standards Organisation) for an internationally-recognised currency.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DhlEntDs">
+      <xs:annotation>
+        <xs:documentation>Order line transaction discount in DHL company entity currency : Contains the discount for the specific order line transaction in the DHL company entity currency.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="18" />
+          <xs:fractionDigits value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DhlEntNtChrg">
+      <xs:annotation>
+        <xs:documentation>Order line transaction net charge in DHL company entity currency : Contains the net charge for the specific order line transaction in the DHL company entity currency.
+</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="18" />
+          <xs:fractionDigits value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="DhlEntOAmt">
+      <xs:annotation>
+        <xs:documentation>Order line transaction override amount in DHL company entity currency : Indicates the order line transaction amount has been overridden by the amount in the DHL company entity currency. The amount can be blank.
+</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="18" />
+          <xs:fractionDigits value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ExchRt">
+      <xs:annotation>
+        <xs:documentation>Order line transaction exchange rate : The exchange rate that has been applied for this order.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="12" />
+          <xs:fractionDigits value="6" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ImdInvInd">
+      <xs:annotation>
+        <xs:documentation>Order line transaction immediate invoicing indicator : Indicates whether the shipment charge should be immediately invoiced.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="InvIntNo">
+      <xs:annotation>
+        <xs:documentation>Invoice internal number : A number that uniquely identifies an invoice.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="20" />
+          <xs:fractionDigits value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OffInvIno">
+      <xs:annotation>
+        <xs:documentation>Offset invoice internal number : A number that uniquely identifies an invoice.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="20" />
+          <xs:fractionDigits value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OrdLnNo">
+      <xs:annotation>
+        <xs:documentation>Order line number : Identify uniquely the line item within an order.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OrdLnTrNo">
+      <xs:annotation>
+        <xs:documentation>Order line transaction number : Indicates the transaction sequence within an order line</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OrdNo">
+      <xs:annotation>
+        <xs:documentation>Order number : A unique number identifying a particular order.
+</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="20" />
+          <xs:fractionDigits value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="OrgDhlEntCd">
+      <xs:annotation>
+        <xs:documentation>Originating DHL company entity code : A unique identifier of a billing entity, also called a DHL company code or CREST code.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="6" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PayAccNo">
+      <xs:annotation>
+        <xs:documentation>/Payer account number : The account number identifier of the Account. This is the number that our customer is using.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PayAUId">
+      <xs:annotation>
+        <xs:documentation>Payer account unique identifier : A unique ten-digit number without leading zeros used to identify an account within DHL. The last digit is a check-digit calculated using the 'Modulus 7' method.
+
+This will be allocated during migration of accounts into GCDB.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="10" />
+          <xs:fractionDigits value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PayChrg">
+      <xs:annotation>
+        <xs:documentation>Order line transaction charge in payer currency : The amount to be charged for the Shipment for the Charge type, expressed in local currency.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="18" />
+          <xs:fractionDigits value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PayCurCd">
+      <xs:annotation>
+        <xs:documentation>Payer iso currency code : Currency ID is the three-character alphabetic unique identifier issued by the ISO 
+(International Standards Organisation) for an internationally-recognised currency.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PayDisc">
+      <xs:annotation>
+        <xs:documentation>Order line transaction discount in payer currency : Contains the discount for the specific order line transaction in the payer currency.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="18" />
+          <xs:fractionDigits value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PayNtChrg">
+      <xs:annotation>
+        <xs:documentation>Order line transaction net charge in payer currency : The amount to be charged for the Shipment for the Charge type, expressed in local currency.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="18" />
+          <xs:fractionDigits value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PayOAmt">
+      <xs:annotation>
+        <xs:documentation>Order line transaction override amount in payer currency : Indicates the order line transaction amount has been overridden by the amount in payer currency. The amount can be blank.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="18" />
+          <xs:fractionDigits value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ShpId">
+      <xs:annotation>
+        <xs:documentation>/Shipment identifier : An identification number assigned to a shipment, controlled by DHL.
+
+If a shipment doesn't have an Order the Shipment identifier is required.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ShpTrNo">
+      <xs:annotation>
+        <xs:documentation>Shipment transaction number : A sequence number given to each update of a shipment record.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="SrvPnt">
+      <xs:annotation>
+        <xs:documentation>Order line transaction service point : Identify the location where the service was requested.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="6" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="StCd">
+      <xs:annotation>
+        <xs:documentation>Order line transaction status code : Defines uniquel a status for an Order line transaction.
+O = Original
+U = Update
+A = Accrual</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_OrderLineTransactionTax">
+    <xs:annotation>
+      <xs:documentation>Contains the taxes that are associated to an order line transaction.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="DhlEntTxChrg">
+      <xs:annotation>
+        <xs:documentation>Order line transaction tax charge in DHL Company entity currency : The amount of tax that has been levied on this charge in billing entity currency.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="18" />
+          <xs:fractionDigits value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ExmtMsg">
+      <xs:annotation>
+        <xs:documentation>Order line transaction tax exempt message : Contains a message describing the reason for the exempt.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PayTxChrg">
+      <xs:annotation>
+        <xs:documentation>Order line transaction tax charge in payer currency : The amount of tax that has been levied on this charge in payer currency.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="18" />
+          <xs:fractionDigits value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="TxRt">
+      <xs:annotation>
+        <xs:documentation>Order line transaction tax rate : The rate against which the tax amount will be calculated for the order line transaction.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:decimal">
+          <xs:totalDigits value="6" />
+          <xs:fractionDigits value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="TxTyCd">
+      <xs:annotation>
+        <xs:documentation>Tax type code : A code to identify the rate of tax that will be levied.
+e.g. VAT or duty, airport, excise, postal tax, carrier tax.
+This tax type is given for each country.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="6" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_OrderNote">
+    <xs:annotation>
+      <xs:documentation>Notes that are associated to an order. It can be any type of notes that are relevant.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="CntId">
+      <xs:annotation>
+        <xs:documentation>Contact identifier : The unique identifier of a business party.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Dtm">
+      <xs:annotation>
+        <xs:documentation>Order note datetime : The date and time the order note is taken.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:dateTime" />
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Entr">
+      <xs:annotation>
+        <xs:documentation>Order note entered by : Contains the name of the customer service agenet that entered the note.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="NtTyCd">
+      <xs:annotation>
+        <xs:documentation>Note type code : Identifies uniquely a note type.
+Values are e.g.
+BUR=Business resident
+ESS=Registered for ESS
+ISS=Past issues
+OPU=Advised online PU
+REQ=Additional Requirements
+VER=Verification
+</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Sbj">
+      <xs:annotation>
+        <xs:documentation>Order note subject : Contains the subject of the note</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Txt">
+      <xs:annotation>
+        <xs:documentation>Order note text : A text describing the problem or situation that has occured.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="250" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_OrderCustomerDetail">
+    <xs:annotation>
+      <xs:documentation>Order customer derails.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="10" name="CDiv">
+        <xs:annotation>
+          <xs:documentation>Country division</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="DivTyCd">
+                <xs:annotation>
+                  <xs:documentation>Country division type code :Code that uniquely identifies a division type. 
+				Valid values are:
+A=Autonomous community
+B=Autonomous country region
+C=County
+D=District
+N=Canton
+O=Country (should be used when no division type for a country has been identified)
+P=Province
+R=Country region
+S=State.
+
+This attribute was added as a hot fix for DCVS project in 042011.
+
+It should be removed together with the other address attributes.
+
+Referenced address entity should be used instead</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:attribute>
+              <xs:attribute name="Nm" use="optional">
+                <xs:annotation>
+                  <xs:documentation>Country division name</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                    <xs:minLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:attribute>
+              <xs:attribute name="Cd" use="optional">
+                <xs:annotation>
+                  <xs:documentation>Country diivision code</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:minLength value="1" />
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:attribute>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SCCDev" type="CdmOrder_OrderCustomerCommunicationDevice">
+        <xs:annotation>
+          <xs:documentation>Ordercustomer detail has Order customer communication device </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="NtwAccNo">
+      <xs:annotation>
+        <xs:documentation>Network Account number : The account number identifier of the Account. This is the number that our customer is using.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CntNm">
+      <xs:annotation>
+        <xs:documentation>Shipment customer contact name : The name of the person to contact in reference to a shipment.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CustNm">
+      <xs:annotation>
+        <xs:documentation>Shipment customer name : The name of the person or company that is directly related to the shipment as a shipper, receiver, etc.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="100" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Addr1">
+      <xs:annotation>
+        <xs:documentation>Shipment customer address line 1 : The first line of the shipment customer's address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Addr2">
+      <xs:annotation>
+        <xs:documentation>Shipment customer address line 2 : The second line of the shipment customer's address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Addr3">
+      <xs:annotation>
+        <xs:documentation>Shipment customer address line 3 : The third line of the shipment customer's address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Addr4">
+      <xs:annotation>
+        <xs:documentation>Shipment customer address line 4 : The fourth line of the shipment customer's address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="AddrId">
+      <xs:annotation>
+        <xs:documentation>Address identifier : A unique number for identifying an Address.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="17" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BsnPtyCd">
+      <xs:annotation>
+        <xs:documentation>Business party code : The unique identifier of a business party.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CRlTyCd">
+      <xs:annotation>
+        <xs:documentation>Customer role type code : A code that uniquely identifies a customer role.
+Values are:
+BC=Barcode
+BT=Bill To
+BY=Buyer
+DF=Destination Facility
+DH=DDI Shipper
+DP=DDI Payer
+DR=DDI Receiver
+DS=Dispatch
+DL=Delivery
+EP=Exporter
+FR=Freight Customer
+IN=Indivisible trans
+IP=Importer
+IQ=Inquirer
+LP=Logistic Service Supplier
+LS=Logistic Supplier Provider
+MR=Message Receiver Party
+MS=Message Sender Party
+NF=Non Freight Customer
+OB=Origin Barcode
+OF=Origin Facility
+OP=Operational
+PK=Package key
+PU=Pick-up
+PY=Payer
+RQ=Requestor
+RT=Return To
+RV=Receiver
+SP=Shipper
+SU=Supplier
+TC=Technical
+TH=Third party</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CtryCd">
+      <xs:annotation>
+        <xs:documentation>/Country code : The country code is a two-character code that uniquely identifies a country.  The code should be aligned to the ISO (ISO 3166-1-alpha-2 code elements) or in certain circumstances created by DHL. 
+Values are e.g.
+BE=Belgium
+FR=France
+XC=Curacao (Not ISO - part of Netherlands Antilles)</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CtyNm">
+      <xs:annotation>
+        <xs:documentation>/City name : City name is the full name of a city within a country.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Dist">
+      <xs:annotation>
+        <xs:documentation>/Shipment customer district : A geographical area within a town or city.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="SCAttention">
+      <xs:annotation>
+        <xs:documentation>Shipment customer attention to : The name of the person that the shipment is attention to.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="SCBldNm">
+      <xs:annotation>
+        <xs:documentation>/Shipment customer building name : The name of the customer???s building, e.g. Kings House (not always indicative of the tenants or location).</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="SCRmk">
+      <xs:annotation>
+        <xs:documentation>Shipment customer remark : Provides any further information.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="250" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="StrNAddtn">
+      <xs:annotation>
+        <xs:documentation>/Shipment customer street number addition : Provides any additional information related to the street or house number.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="StrNm">
+      <xs:annotation>
+        <xs:documentation>/Shipment customer street name : The name of the customer???s street.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="45" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="StrNo">
+      <xs:annotation>
+        <xs:documentation>/Shipment customer street number : The number in the street that identifies the customer's site.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="20" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="VatNo">
+      <xs:annotation>
+        <xs:documentation>/Shipment customer VAT number : The customer's registration number.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Zip">
+      <xs:annotation>
+        <xs:documentation>/Postcode : Postal Area is a code used within countries and country division to uniquely identify pickup and delivery areas used by the national postal organisation. Used by DHL to match customer known addresses into DHL's network of service area's.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="12" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_OrderCustomerCommunicationDevice">
+    <xs:annotation>
+      <xs:documentation>List the communication devices that has been given for a shipment's customer. E.g. the telephone, mobile, fax or e-mail address of the shipper, receiver or a third parti.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="CDevNo">
+      <xs:annotation>
+        <xs:documentation>Communication device number : The number (or e-mail address) for the communication type used by this customer.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="70" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CDevTyCd">
+      <xs:annotation>
+        <xs:documentation>Communication device type code : The code for a communication method that can be used to reach e.g. a facility, staff contact. Values are:
+EML=Email
+EXT=Extension
+FAX=Fax
+MOB=Mobile
+REV=ReversePhoneNo
+SMS=SMS
+TEL=Phone
+TLX=Telex
+VML=Voice Mail
+URL=Website / URL
+</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PrfInd">
+      <xs:annotation>
+        <xs:documentation>Shipment customer communication device preferred indicator : Indicates whether this is a preferred communication devices for the customer.
+Y=Yes
+N=No</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="CdmOrder_OrderReference">
+    <xs:annotation>
+      <xs:documentation />
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GI" type="CF_GI:GenInfo">
+        <xs:annotation>
+          <xs:documentation>General Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="CRlTyCd">
+      <xs:annotation>
+        <xs:documentation>Customer role type code : A code that uniquely identifies a customer role.
+Values are:
+BC=Barcode
+BT=Bill To
+BY=Buyer
+DF=Destination Facility
+DH=DDI Shipper
+DP=DDI Payer
+DR=DDI Receiver
+DS=Dispatch
+DL=Delivery
+EP=Exporter
+FR=Freight Customer
+IN=Indivisible trans
+IP=Importer
+IQ=Inquirer
+LP=Logistic Service Supplier
+LS=Logistic Supplier Provider
+MR=Message Receiver Party
+MS=Message Sender Party
+NF=Non Freight Customer
+OB=Origin Barcode
+OF=Origin Facility
+OP=Operational
+PK=Package key
+PU=Pick-up
+PY=Payer
+RQ=Requestor
+RT=Return To
+RV=Receiver
+SP=Shipper
+SU=Supplier
+TC=Technical
+TH=Third party</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Rmk">
+      <xs:annotation>
+        <xs:documentation>Order reference remark : List any references that are related to the particular order, e.g. Customer Order Number.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="35" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,117 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ESS.master.cs" Inherits="EletronicShippingSuplies.ESS" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %>Electronic Shipping Supplies</title>
+    <link rel="stylesheet" type="text/css" href="~/Assets/CSS/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/CSS/CustomsPortal.css" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/CSS/FontAwesome.css" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/CSS/jquery-ui.min.css" />
+    <link rel="shortcut icon" href="~/Assets/Images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="~/Assets/Images/favicon.ico" type="image/ico" />
+
+    <script src='<%=ResolveUrl("~/Assets/JS/jquery-3.3.1.min.js")%>'></script>
+    <script src='<%=ResolveUrl("~/Assets/JS/bootstrap.min.js")%>'></script>
+    <script src='<%=ResolveUrl("~/Assets/JS/jquery.ui.widget.js")%>'></script>
+    <script src='<%=ResolveUrl("~/Assets/JS/jquery.iframe-transport.js")%>'></script>
+    <script src='<%=ResolveUrl("~/Assets/JS/jquery.fileupload.js")%>'></script>
+    <script src='<%=ResolveUrl("~/Assets/JS/jquery-ui.min.js")%>'></script>
+    <script src='<%=ResolveUrl("~/Assets/JS/jquery.mask.min.js")%>'></script>
+    <script src='<%=ResolveUrl("~/Assets/JS/JqueryMask.js")%>'></script>
+    <script src='<%=ResolveUrl("~/Assets/JS/bootstrap-notify.min.js")%>'></script>
+    <script src='<%=ResolveUrl("~/Assets/JS/main.js")%>'></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+
+    <form runat="server">
+        <asp:ScriptManager ID="MasterPageScriptManager" runat="server"></asp:ScriptManager>
+        <asp:LoginView ID="loginView" runat="server" ViewStateMode="Disabled">
+            <AnonymousTemplate>
+                <div id="DHLNavbar" class="navbar navbar-inverse navbar-fixed-top" style="height: 55px!important;">
+                    <div class="container">
+                        <div class="navbar-header col-md-12">
+                            <a class="navbar-brand DHLPageTitle" runat="server" href="~/MainPage.aspx">
+                                <img runat="server" class="DHLLogo" src="~/Assets/Images/DHL_Logo.png" />
+                            </a>
+                            <ul class="nav navbar-nav" style="float: right!important; display: inline-flex;">
+                                <%--<li><a id="infoModal" runat="server" type="button" data-toggle="modal" data-target="#myModalInfo" class="DHLLangPick" href="#" style="margin-top: 1px;"><i class="fas fa-info-circle fa-lg"></i></a></li>
+                                <li><a id="langPT" runat="server" onserverclick="langPT_ServerClick" class="DHLLangPick" href="~/">&nbsp;PT</a></li>
+                                <li><a id="langEN" runat="server" onserverclick="langEN_ServerClick" class="DHLLangPick" href="~/">&nbsp;ENG</a></li>--%>
+                            </ul>
+                            <div class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li><a runat="server" href="~/Backend/Register">Register</a></li>
+                                    <li><a runat="server" href="~/Backend/Login">Log in</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </AnonymousTemplate>
+            <LoggedInTemplate>
+                <div id="DHLNavbar" class="navbar navbar-inverse navbar-fixed-top" style="height: 55px!important;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" runat="server">
+                                        <img runat="server" class="DHLLogo" src="~/Assets/Images/DHL_Logo.png" width="160" height="35" />
+                                    </a>
+                                </div>
+                                <div class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav" id="visibleMenusAdmin" runat="server">
+                                        <li><a runat="server" href="~/Backend/ProductList">Shop</a></li>
+                                        <li><a runat="server" href="~/Backend/ShoppingCart">Cart</a></li>
+                                        <li><a runat="server" href="~/Backend/Dashboard">Dashboard</a></li>
+                                        <li><a runat="server" href="~/Backend/AdminProductDash">Admin</a></li>
+                                        <li><a runat="server" href="~/Backend/LogOut">Log out</a></li>
+                                    </ul>
+
+                                    <ul class="nav navbar-nav" id="visibleMenusUser" runat="server">
+                                        <li><a runat="server" href="~/Backend/ProductList">Shop</a></li>
+                                        <li><a runat="server" href="~/Backend/ShoppingCart">Cart</a></li>
+                                        <li><a runat="server" href="~/Backend/Dashboard">Dashboard</a></li>
+                                        <li><a runat="server" href="~/Backend/LogOut">Log out</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </LoggedInTemplate>
+        </asp:LoginView>
+        <div class="container body-content" style="margin-top: -15px;">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer id="DHLFooter" class="footer navbar-fixed-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 text-center">
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <span><%: DateTime.Now.Year %> &copy; DHL International Gmbh</span>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <a id="ftPrivacyPolicy" runat="server" href="https://www.logistics.dhl/pt-en/home/footer/local-privacy-notice.html" style="color: black!important;"></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
+
